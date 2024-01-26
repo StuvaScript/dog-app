@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="main.js" defer></script>
-    <title>Gimme a title</title>
+    <title>Dog App</title>
   </head>
   <body>
-    Sourced from https://thedogapi.com/
+    <main>
+      <form action="#">
+        <label for="search-input"></label>
+        <input
+          type="text"
+          name="search-input"
+          id="search-input"
+          placeholder="Search dog breeds"
+          aria-label="Search for dog breeds here"
+        />
+        <button id="submit-button" title="search">Search</button>
+      </form>
+    </main>
+    <footer>Sourced from https://thedogapi.com/</footer>
   </body>
 </html>
