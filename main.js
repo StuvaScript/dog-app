@@ -421,7 +421,14 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `.breed-image > img {
+  width: 250px;
+}
+
+.breed-wrapper {
+  cursor: pointer;
+}
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;AACjB","sourcesContent":[".breed-image > img {\n  width: 250px;\n}\n\n.breed-wrapper {\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -922,6 +929,73 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/dom-manipulation.js":
+/*!*****************************************!*\
+  !*** ./src/modules/dom-manipulation.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   displayBreeds: () => (/* binding */ displayBreeds),
+/* harmony export */   removeDogs: () => (/* binding */ removeDogs)
+/* harmony export */ });
+
+
+//* **`` The main breed selector page
+//* ************************************************************************************
+//? **`` Makes a list of all the dog breed names that appeared from the search input and displays them
+function displayBreeds([...returnedBreeds]) {
+  const main = document.querySelector('main');
+  const listWrapper = document.createElement('div');
+  listWrapper.setAttribute('id', 'list-wrapper');
+
+  returnedBreeds.forEach((breed) => {
+    //? **`` Creates a div for each breed, adds a class name and the breed ID, and appends it to the wrapper
+    const breedWrapper = document.createElement('div');
+    breedWrapper.classList.add('breed-wrapper');
+    breedWrapper.setAttribute('data-breed-ID', `${breed.id}`);
+    breedName(breed, breedWrapper);
+    breedImage(breed, breedWrapper);
+
+    listWrapper.append(breedWrapper);
+  });
+  main.append(listWrapper);
+}
+
+//? **` Creates a div, assigns the breed's name and class name to the div
+function breedName(breed, breedWrapper) {
+  const breedName = document.createElement('div');
+  breedName.classList.add('breed-name');
+  breedName.innerText = breed.name;
+  breedWrapper.append(breedName);
+}
+//? **` Creates a div, assigns the breed's class name to the div. Creates an img element and attaches the breed's image to it.
+function breedImage(breed, breedWrapper) {
+  //? **`` Creates the div
+  const breedImage = document.createElement('div');
+  breedImage.classList.add('breed-image');
+  //? **`` Creates the image
+  const img = document.createElement('img');
+  img.setAttribute('src', breed.image.url);
+  img.setAttribute('alt', `Picture of ${breed.name} breed`);
+  breedImage.append(img);
+  breedWrapper.append(breedImage);
+}
+
+//? **`` Removes the displayed dogs
+function removeDogs() {
+  if (document.querySelector('#list-wrapper')) {
+    document.querySelector('#list-wrapper').remove();
+  }
+}
+
+//* **`` The breed info page
+//* ************************************************************************************
+
+
+/***/ }),
+
 /***/ "./src/modules/event-handlers.js":
 /*!***************************************!*\
   !*** ./src/modules/event-handlers.js ***!
@@ -932,35 +1006,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   searchBreedsLogic: () => (/* binding */ searchBreedsLogic)
 /* harmony export */ });
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./src/modules/functions.js");
+/* harmony import */ var _dom_manipulation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom-manipulation */ "./src/modules/dom-manipulation.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions */ "./src/modules/functions.js");
 
 
 
 
-//! **`` The prevent default isn't working and the page is reloading on submit. Possibly an issue with async function
+
+//? **`` This listens for the search submit, waits for the function that fetches the data, and displays the appropriate data
 function searchBreedsLogic() {
   const form = document.querySelector('form');
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault;
-    let inputField = document.querySelector('#search-input');
-
-    console.log(inputField.value);
-    const returnedBreeds = await (0,_functions__WEBPACK_IMPORTED_MODULE_0__.searchForBreed)(inputField.value);
-    console.log(returnedBreeds);
-
-    displayBreeds(returnedBreeds);
-
-    function displayBreeds([...returnedBreeds]) {
-      const main = document.querySelector('main');
-      const list = document.createElement('ul');
-      returnedBreeds.forEach((breed) => {
-        const li = document.createElement('li');
-        li.innerText = breed.name;
-        list.append(li);
-      });
-      main.append(list);
+    e.preventDefault();
+    const inputField = document.querySelector('#search-input');
+    if (inputField.value === '') {
+      return;
     }
+    (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
+    const returnedBreeds = await (0,_functions__WEBPACK_IMPORTED_MODULE_1__.searchForBreed)(inputField.value);
+    (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBreeds)(returnedBreeds);
+    inputField.value = '';
+    navigateToBreedInfoPageLogic();
+  });
+}
+
+//? **`` Adds a listener onto the breed-wrappers and displays the breed info when clicked
+function navigateToBreedInfoPageLogic() {
+  [...document.querySelectorAll('.breed-wrapper')].forEach((breed) => {
+    breed.addEventListener('click', async function (e) {
+      console.log(e);
+      console.log(this.attributes['data-breed-id'].value);
+      const breedID = this.attributes['data-breed-id'].value;
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
+      const returnedInfo = await (0,_functions__WEBPACK_IMPORTED_MODULE_1__.fetchBreedImagesAndInfo)(breedID);
+    });
   });
 }
 
@@ -975,11 +1055,12 @@ function searchBreedsLogic() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   fetchBreedImagesAndInfo: () => (/* binding */ fetchBreedImagesAndInfo),
 /* harmony export */   searchForBreed: () => (/* binding */ searchForBreed)
 /* harmony export */ });
 
 
-const apiKey = {"LESSOPEN":"| /usr/bin/lesspipe %s","LANGUAGE":"en_US","USER":"stu","npm_config_user_agent":"npm/9.6.5 node/v18.12.1 linux x64 workspaces/false","XDG_SEAT":"seat0","XDG_SESSION_TYPE":"x11","GIT_ASKPASS":"/usr/share/code/resources/app/extensions/git/dist/askpass.sh","npm_node_execpath":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","SHLVL":"2","npm_config_noproxy":"","HOME":"/home/stu","CHROME_DESKTOP":"code-url-handler.desktop","OLDPWD":"/home/stu/repos","TERM_PROGRAM_VERSION":"1.85.2","DESKTOP_SESSION":"xubuntu","NVM_BIN":"/home/stu/.nvm/versions/node/v18.12.1/bin","npm_package_json":"/home/stu/repos/dog-app/package.json","NVM_INC":"/home/stu/.nvm/versions/node/v18.12.1/include/node","XDG_SEAT_PATH":"/org/freedesktop/DisplayManager/Seat0","VSCODE_GIT_ASKPASS_MAIN":"/usr/share/code/resources/app/extensions/git/dist/askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"/usr/share/code/code","npm_config_userconfig":"/home/stu/.npmrc","npm_config_local_prefix":"/home/stu/repos/dog-app","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","COLORTERM":"truecolor","COLOR":"1","NVM_DIR":"/home/stu/.nvm","npm_config_metrics_registry":"https://registry.npmjs.org/","QT_QPA_PLATFORMTHEME":"gtk2","LOGNAME":"stu","WINDOWID":"73400323","_":"/home/stu/.nvm/versions/node/v18.12.1/bin/npx","npm_config_prefix":"/home/stu/.nvm/versions/node/v18.12.1","XDG_SESSION_CLASS":"user","CLUTTER_BACKEND":"x11","TERM":"xterm-256color","GTK_OVERLAY_SCROLLING":"0","XDG_SESSION_ID":"c1","npm_config_cache":"/home/stu/.npm","npm_config_node_gyp":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js","PATH":"/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/node_modules/.bin:/home/stu/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/stu/.nvm/versions/node/v18.12.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","SESSION_MANAGER":"local/stu-VirtualBox:@/tmp/.ICE-unix/1399,unix/stu-VirtualBox:/tmp/.ICE-unix/1399","GDM_LANG":"en_US","NODE":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","npm_package_name":"dog-app","XDG_SESSION_PATH":"/org/freedesktop/DisplayManager/Session0","XDG_MENU_PREFIX":"xfce-","XDG_RUNTIME_DIR":"/run/user/1000","GDK_BACKEND":"x11","DISPLAY":":0.0","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"XFCE","XDG_SESSION_DESKTOP":"xubuntu","XAUTHORITY":"/home/stu/.Xauthority","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","VSCODE_GIT_IPC_HANDLE":"/run/user/1000/vscode-git-bb3cc7d95e.sock","TERM_PROGRAM":"vscode","npm_lifecycle_script":"webpack","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","XDG_GREETER_DATA_DIR":"/var/lib/lightdm-data/stu","ORIGINAL_XDG_CURRENT_DESKTOP":"XFCE","SHELL":"/bin/bash","npm_package_version":"1.0.0","npm_lifecycle_event":"npx","QT_ACCESSIBILITY":"1","GDMSESSION":"xubuntu","LESSCLOSE":"/usr/bin/lesspipe %s %s","GPG_AGENT_INFO":"/run/user/1000/gnupg/S.gpg-agent:0:1","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","XDG_VTNR":"7","npm_config_globalconfig":"/home/stu/.nvm/versions/node/v18.12.1/etc/npmrc","npm_config_init_module":"/home/stu/.npm-init.js","PWD":"/home/stu/repos/dog-app","npm_execpath":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/bin/npx-cli.js","XDG_CONFIG_DIRS":"/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg","NVM_CD_FLAGS":"","XDG_DATA_DIRS":"/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share","npm_config_global_prefix":"/home/stu/.nvm/versions/node/v18.12.1","npm_command":"exec","VTE_VERSION":"6800","INIT_CWD":"/home/stu/repos/dog-app","EDITOR":"vi","API_KEY":"live_wMtePYATvRDPMV45HmQ4uScPw5A7KlmBFqZl5Pck9PXE6SUsEePFRUMGsJz7BXUC"}.API_KEY;
+const apiKey = {"LESSOPEN":"| /usr/bin/lesspipe %s","LANGUAGE":"en_US","USER":"stu","npm_config_user_agent":"npm/9.6.5 node/v18.12.1 linux x64 workspaces/false","XDG_SEAT":"seat0","XDG_SESSION_TYPE":"x11","GIT_ASKPASS":"/usr/share/code/resources/app/extensions/git/dist/askpass.sh","npm_node_execpath":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","SHLVL":"2","npm_config_noproxy":"","HOME":"/home/stu","CHROME_DESKTOP":"code-url-handler.desktop","OLDPWD":"/home/stu/repos","TERM_PROGRAM_VERSION":"1.85.2","DESKTOP_SESSION":"xubuntu","NVM_BIN":"/home/stu/.nvm/versions/node/v18.12.1/bin","npm_package_json":"/home/stu/repos/dog-app/package.json","NVM_INC":"/home/stu/.nvm/versions/node/v18.12.1/include/node","XDG_SEAT_PATH":"/org/freedesktop/DisplayManager/Seat0","VSCODE_GIT_ASKPASS_MAIN":"/usr/share/code/resources/app/extensions/git/dist/askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"/usr/share/code/code","npm_config_userconfig":"/home/stu/.npmrc","npm_config_local_prefix":"/home/stu/repos/dog-app","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","COLORTERM":"truecolor","COLOR":"1","NVM_DIR":"/home/stu/.nvm","npm_config_metrics_registry":"https://registry.npmjs.org/","QT_QPA_PLATFORMTHEME":"gtk2","LOGNAME":"stu","WINDOWID":"67108867","_":"/home/stu/.nvm/versions/node/v18.12.1/bin/npx","npm_config_prefix":"/home/stu/.nvm/versions/node/v18.12.1","XDG_SESSION_CLASS":"user","CLUTTER_BACKEND":"x11","TERM":"xterm-256color","GTK_OVERLAY_SCROLLING":"0","XDG_SESSION_ID":"c1","npm_config_cache":"/home/stu/.npm","npm_config_node_gyp":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js","PATH":"/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/node_modules/.bin:/home/stu/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/stu/.nvm/versions/node/v18.12.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","SESSION_MANAGER":"local/stu-VirtualBox:@/tmp/.ICE-unix/1375,unix/stu-VirtualBox:/tmp/.ICE-unix/1375","GDM_LANG":"en_US","NODE":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","npm_package_name":"dog-app","XDG_SESSION_PATH":"/org/freedesktop/DisplayManager/Session0","XDG_MENU_PREFIX":"xfce-","XDG_RUNTIME_DIR":"/run/user/1000","GDK_BACKEND":"x11","DISPLAY":":0.0","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"XFCE","XDG_SESSION_DESKTOP":"xubuntu","XAUTHORITY":"/home/stu/.Xauthority","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","VSCODE_GIT_IPC_HANDLE":"/run/user/1000/vscode-git-bb3cc7d95e.sock","TERM_PROGRAM":"vscode","npm_lifecycle_script":"webpack","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","XDG_GREETER_DATA_DIR":"/var/lib/lightdm-data/stu","ORIGINAL_XDG_CURRENT_DESKTOP":"XFCE","SHELL":"/bin/bash","npm_package_version":"1.0.0","npm_lifecycle_event":"npx","QT_ACCESSIBILITY":"1","GDMSESSION":"xubuntu","LESSCLOSE":"/usr/bin/lesspipe %s %s","GPG_AGENT_INFO":"/run/user/1000/gnupg/S.gpg-agent:0:1","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","XDG_VTNR":"7","npm_config_globalconfig":"/home/stu/.nvm/versions/node/v18.12.1/etc/npmrc","npm_config_init_module":"/home/stu/.npm-init.js","PWD":"/home/stu/repos/dog-app","npm_execpath":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/bin/npx-cli.js","XDG_CONFIG_DIRS":"/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg","NVM_CD_FLAGS":"","XDG_DATA_DIRS":"/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share","npm_config_global_prefix":"/home/stu/.nvm/versions/node/v18.12.1","npm_command":"exec","VTE_VERSION":"6800","INIT_CWD":"/home/stu/repos/dog-app","EDITOR":"vi","API_KEY":"live_wMtePYATvRDPMV45HmQ4uScPw5A7KlmBFqZl5Pck9PXE6SUsEePFRUMGsJz7BXUC"}.API_KEY;
 
 //? **`` Receives the value from the search input and fetches the dog breed data
 async function searchForBreed(searchValue) {
@@ -992,6 +1073,23 @@ async function searchForBreed(searchValue) {
     );
     const data = await response.json();
     console.log(data);
+    return data;
+  } catch (error) {
+    console.error(`Error: ${error}`);
+  }
+}
+
+//? **`` Receives the value from the search input and fetches the dog breed data
+async function fetchBreedImagesAndInfo(breedID) {
+  try {
+    const response = await fetch(
+      `https://api.thedogapi.com/v1/images/search?api_key=${apiKey}&breed_ids=${breedID}&limit=15&has_breeds=1`,
+      {
+        mode: 'cors',
+      },
+    );
+    const data = await response.json();
+    console.table(data);
     return data;
   } catch (error) {
     console.error(`Error: ${error}`);
@@ -1082,10 +1180,8 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_event_handlers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/event-handlers */ "./src/modules/event-handlers.js");
-/* harmony import */ var _modules_functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/functions */ "./src/modules/functions.js");
-/* harmony import */ var _normalize_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./normalize.css */ "./src/normalize.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
-
+/* harmony import */ var _normalize_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./normalize.css */ "./src/normalize.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 
 
 
