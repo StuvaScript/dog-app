@@ -1,0 +1,7 @@
+.breed-image > img {
+  width: 250px;
+}
+
+.breed-wrapper {
+  cursor: pointer;
+}

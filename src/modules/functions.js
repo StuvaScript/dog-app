@@ -1,4 +1,4 @@
-export { searchForBreed };
+export { searchForBreed, fetchBreedImagesAndInfo };
 
 const apiKey = process.env.API_KEY;
 
@@ -13,6 +13,23 @@ async function searchForBreed(searchValue) {
     );
     const data = await response.json();
     console.log(data);
+    return data;
+  } catch (error) {
+    console.error(`Error: ${error}`);
+  }
+}
+
+//? **`` Receives the value from the search input and fetches the dog breed data
+async function fetchBreedImagesAndInfo(breedID) {
+  try {
+    const response = await fetch(
+      `https://api.thedogapi.com/v1/images/search?api_key=${apiKey}&breed_ids=${breedID}&limit=15&has_breeds=1`,
+      {
+        mode: 'cors',
+      },
+    );
+    const data = await response.json();
+    console.table(data);
     return data;
   } catch (error) {
     console.error(`Error: ${error}`);
