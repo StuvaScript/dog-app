@@ -1,4 +1,4 @@
-import { displayBreeds, removeDogs } from './dom-manipulation';
+import { displayBreeds, displayInfo, removeDogs } from './dom-manipulation';
 import { fetchBreedImagesAndInfo, searchForBreed } from './functions';
 
 export { searchBreedsLogic };
@@ -30,61 +30,7 @@ function navigateToBreedInfoPageLogic() {
       const breedID = this.attributes['data-breed-id'].value;
       removeDogs();
       const returnedInfo = await fetchBreedImagesAndInfo(breedID);
-
       displayInfo(returnedInfo);
-      function displayInfo(returnedInfo) {
-        const main = document.querySelector('main');
-
-        const infoWrapper = document.createElement('div');
-        infoWrapper.setAttribute('id', 'info-wrapper');
-        main.append(infoWrapper);
-
-        // for (const [key, value] of Object.entries(returnedInfo[0].breeds[0])) {
-        //   console.log(`${key}: ${value}`);
-        // }
-        const bredFor = document.createElement('div');
-        bredFor.innerText = `Bred for: ${returnedInfo[0].breeds[0].bred_for}`;
-        const breedGroup = document.createElement('div');
-        breedGroup.innerText = `Breed group: ${returnedInfo[0].breeds[0].breed_group}`;
-        const height = document.createElement('div');
-        height.innerText = `Height: ${returnedInfo[0].breeds[0].height.imperial} in, ${returnedInfo[0].breeds[0].height.metric} cm`;
-        const weight = document.createElement('div');
-        weight.innerText = `Weight: ${returnedInfo[0].breeds[0].weight.imperial} lb, ${returnedInfo[0].breeds[0].weight.metric} kg`;
-        const lifeSpan = document.createElement('div');
-        lifeSpan.innerText = `Life span: ${returnedInfo[0].breeds[0].life_span}`;
-        const name = document.createElement('div');
-        name.innerText = `${returnedInfo[0].breeds[0].name}`;
-        const temperament = document.createElement('div');
-        temperament.innerText = `Temperament: ${returnedInfo[0].breeds[0].temperament}`;
-        infoWrapper.append(
-          bredFor,
-          breedGroup,
-          height,
-          weight,
-          lifeSpan,
-          name,
-          temperament,
-        );
-
-        console.log(returnedInfo[0].breeds[0]);
-        console.log('bred for ' + returnedInfo[0].breeds[0].bred_for);
-        console.log('breed group ' + returnedInfo[0].breeds[0].breed_group);
-        console.log(
-          'height ' +
-            returnedInfo[0].breeds[0].height.imperial +
-            ' ' +
-            returnedInfo[0].breeds[0].height.metric,
-        );
-        console.log('life span ' + returnedInfo[0].breeds[0].life_span);
-        console.log('name ' + returnedInfo[0].breeds[0].name);
-        console.log('temperament ' + returnedInfo[0].breeds[0].temperament);
-        console.log(
-          'weight ' +
-            returnedInfo[0].breeds[0].weight.imperial +
-            ' ' +
-            returnedInfo[0].breeds[0].weight.metric,
-        );
-      }
     });
   });
 }

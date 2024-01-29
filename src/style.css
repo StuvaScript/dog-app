@@ -5,3 +5,7 @@
 .breed-wrapper {
   cursor: pointer;
 }
+
+.info-image > img {
+  width: 250px;
+}
