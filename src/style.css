@@ -9,3 +9,9 @@
 .info-image > img {
   width: 250px;
 }
+
+#back-button {
+  font-size: 2rem;
+  color: green;
+  cursor: pointer;
+}

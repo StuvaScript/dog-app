@@ -1,7 +1,13 @@
-import { displayBreeds, displayInfo, removeDogs } from './dom-manipulation';
+import {
+  backButton,
+  displayBreeds,
+  displayInfo,
+  introPage,
+  removeDogs,
+} from './dom-manipulation';
 import { fetchBreedImagesAndInfo, searchForBreed } from './functions';
 
-export { searchBreedsLogic };
+export { searchBreedsLogic, clickLogoLogic };
 
 //? **`` This listens for the search submit, waits for the function that fetches the data, and displays the appropriate data
 function searchBreedsLogic() {
@@ -15,6 +21,7 @@ function searchBreedsLogic() {
     }
     removeDogs();
     const returnedBreeds = await searchForBreed(inputField.value);
+    backButton();
     displayBreeds(returnedBreeds);
     inputField.value = '';
     navigateToBreedInfoPageLogic();
@@ -32,5 +39,14 @@ function navigateToBreedInfoPageLogic() {
       const returnedInfo = await fetchBreedImagesAndInfo(breedID);
       displayInfo(returnedInfo);
     });
+  });
+}
+
+function clickLogoLogic() {
+  const logo = document.querySelector('#logo');
+
+  logo.addEventListener('click', () => {
+    removeDogs();
+    introPage();
   });
 }

@@ -1,4 +1,4 @@
-export { displayBreeds, removeDogs, displayInfo };
+export { displayBreeds, removeDogs, displayInfo, introPage, backButton };
 
 const main = document.querySelector('main');
 
@@ -14,8 +14,12 @@ function displayBreeds([...returnedBreeds]) {
   const listWrapper = document.createElement('div');
   listWrapper.setAttribute('id', 'list-wrapper');
 
+  //? **`` Creates a div for each breed, adds a class name and the breed ID, and appends it to the wrapper
   returnedBreeds.forEach((breed) => {
-    //? **`` Creates a div for each breed, adds a class name and the breed ID, and appends it to the wrapper
+    //? **`` If theres no image, it returns out and won't display anything.
+    if (!breed.image) {
+      return;
+    }
     const breedWrapper = document.createElement('div');
     breedWrapper.classList.add('breed-wrapper');
     breedWrapper.setAttribute('data-breed-ID', `${breed.id}`);
@@ -125,4 +129,27 @@ function displayInfo(returnedInfo) {
     infoImage.append(img);
     imageWrapper.append(infoImage);
   });
+}
+
+//? **`` The initial greeting for the app
+function introPage() {
+  const para1 = document.createElement('p');
+  para1.innerText =
+    'dog ipsum heckin tippy taps blep gib boi fluffer yapper long boi pupperino pupperino smol fren mahm bamboozle sploot pupperino nuggs gib blop snacc danger noodle long boi sploot snacc sploot chimken snacc woofer chimken fren chonky awoo teef danger noodle bamboozle pupperino blop mahm pupperino mahm pats floof awoo floof fluffer floof blop yapper cronch pupperino boop loaf tippy taps teef heck awoo smol hooman boi sploot sleppy woofer floofer chonk derp walkies awoo awoo nuggs snoot mahm hooman cronch tippy taps danger noodle boi zoomies danger noodle nuggs derp pupper tippy taps snacc snoot';
+
+  const para2 = document.createElement('p');
+  para2.innerText =
+    'pupperino pupperino pupper heckin floof boop bamboozle noods zoomies yapper nuggs chonky walkies pats boop awoo derp fren woofer gib gib toe beans teef noods snoot heck fren zoomies pupper mahm loaf smol fren cloud loaf floofer cronch snoot floof yapper bork pats derp bamboozle derp loaf chonk zoomies chonky sploot floofer fren pupper derp henlo pats pats fluffer long boi sleppy fluffer tippy taps mahm danger noodle hooman blop bork yapper henlo fren snoot sleppy henlo cloud bamboozle bork boop';
+
+  const br = document.createElement('br');
+
+  main.append(para1, br, para2);
+}
+
+//? **`` Creates a back button
+function backButton() {
+  const goBack = document.createElement('div');
+  goBack.setAttribute('id', 'back-button');
+  goBack.innerText = 'Go back';
+  main.append(goBack);
 }

@@ -12,6 +12,9 @@ async function searchForBreed(searchValue) {
       },
     );
     const data = await response.json();
+    if (data.length === 0) {
+      console.warn('No breeds found. Pop message on screen.');
+    }
     console.log(data);
     return data;
   } catch (error) {
