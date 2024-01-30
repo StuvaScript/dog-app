@@ -16,7 +16,7 @@ function displayBreeds([...returnedBreeds]) {
 
   //? **`` Creates a div for each breed, adds a class name and the breed ID, and appends it to the wrapper
   returnedBreeds.forEach((breed) => {
-    //? **`` If theres no image, it returns out and won't display anything.
+    //? **`` If theres no image, it returns and won't display anything.
     if (!breed.image) {
       return;
     }
@@ -131,6 +131,9 @@ function displayInfo(returnedInfo) {
   });
 }
 
+//* **`` Other functions
+//* ************************************************************************************
+
 //? **`` The initial greeting for the app
 function introPage() {
   const para1 = document.createElement('p');
@@ -146,10 +149,11 @@ function introPage() {
   main.append(para1, br, para2);
 }
 
-//? **`` Creates a back button
-function backButton() {
+//? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.
+function backButton(location) {
   const goBack = document.createElement('div');
   goBack.setAttribute('id', 'back-button');
+  goBack.setAttribute('data-location', `${location}`);
   goBack.innerText = 'Go back';
   main.append(goBack);
 }

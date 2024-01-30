@@ -971,7 +971,7 @@ function displayBreeds([...returnedBreeds]) {
 
   //? **`` Creates a div for each breed, adds a class name and the breed ID, and appends it to the wrapper
   returnedBreeds.forEach((breed) => {
-    //? **`` If theres no image, it returns out and won't display anything.
+    //? **`` If theres no image, it returns and won't display anything.
     if (!breed.image) {
       return;
     }
@@ -1086,6 +1086,9 @@ function displayInfo(returnedInfo) {
   });
 }
 
+//* **`` Other functions
+//* ************************************************************************************
+
 //? **`` The initial greeting for the app
 function introPage() {
   const para1 = document.createElement('p');
@@ -1101,10 +1104,11 @@ function introPage() {
   main.append(para1, br, para2);
 }
 
-//? **`` Creates a back button
-function backButton() {
+//? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.
+function backButton(location) {
   const goBack = document.createElement('div');
   goBack.setAttribute('id', 'back-button');
+  goBack.setAttribute('data-location', `${location}`);
   goBack.innerText = 'Go back';
   main.append(goBack);
 }
@@ -1142,7 +1146,8 @@ function searchBreedsLogic() {
     }
     (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
     const returnedBreeds = await (0,_functions__WEBPACK_IMPORTED_MODULE_1__.searchForBreed)(inputField.value);
-    (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.backButton)();
+    (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.backButton)('breed-select');
+    clickBackButtonLogic();
     (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBreeds)(returnedBreeds);
     inputField.value = '';
     navigateToBreedInfoPageLogic();
@@ -1158,17 +1163,31 @@ function navigateToBreedInfoPageLogic() {
       const breedID = this.attributes['data-breed-id'].value;
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
       const returnedInfo = await (0,_functions__WEBPACK_IMPORTED_MODULE_1__.fetchBreedImagesAndInfo)(breedID);
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.backButton)('breed-info');
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayInfo)(returnedInfo);
     });
   });
 }
 
+//? **`` When clicking the logo, it acts as a 'home' button returning you to the main screen
 function clickLogoLogic() {
   const logo = document.querySelector('#logo');
 
   logo.addEventListener('click', () => {
     (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
     (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.introPage)();
+  });
+}
+
+function clickBackButtonLogic() {
+  const backBtn = document.querySelector('#back-button');
+
+  backBtn.addEventListener('click', function () {
+    console.log(this.attributes['data-location'].value);
+    if (this.attributes['data-location'].value === 'breed-select') {
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.introPage)();
+    }
   });
 }
 
@@ -1226,6 +1245,8 @@ async function fetchBreedImagesAndInfo(breedID) {
     console.error(`Error: ${error}`);
   }
 }
+
+//* loop array of breeds, need breed.id, breed.name, breed.image.url
 
 
 /***/ })
@@ -1323,10 +1344,14 @@ __webpack_require__.r(__webpack_exports__);
 (0,_modules_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.introPage)();
 (0,_modules_event_handlers__WEBPACK_IMPORTED_MODULE_1__.clickLogoLogic)();
 
+//todo **`` Working on back button. Need to build a small array with the info at 'function.js' line 42. The info is called from 'searchForBreed()' in 'function.js' and displayed with 'displayBreeds()' in 'dom-manipulation.js'. I need to store that data and when I click the back button, it displays that data from the array.
+
 //todo **`` Add a loading screen
 //todo **`` Add favicon
 //todo **`` Get rid of helper console messages
 //todo **`` Build a back button. Store the retrieved data in an object for faster 'back' loading
+//todo **`` Make the 'removeDogs()' function remove the form also once you get the back button working
+//todo **`` If no breeds are found, make that message appear
 
 })();
 

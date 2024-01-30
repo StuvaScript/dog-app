@@ -21,7 +21,8 @@ function searchBreedsLogic() {
     }
     removeDogs();
     const returnedBreeds = await searchForBreed(inputField.value);
-    backButton();
+    backButton('breed-select');
+    clickBackButtonLogic();
     displayBreeds(returnedBreeds);
     inputField.value = '';
     navigateToBreedInfoPageLogic();
@@ -37,16 +38,30 @@ function navigateToBreedInfoPageLogic() {
       const breedID = this.attributes['data-breed-id'].value;
       removeDogs();
       const returnedInfo = await fetchBreedImagesAndInfo(breedID);
+      backButton('breed-info');
       displayInfo(returnedInfo);
     });
   });
 }
 
+//? **`` When clicking the logo, it acts as a 'home' button returning you to the main screen
 function clickLogoLogic() {
   const logo = document.querySelector('#logo');
 
   logo.addEventListener('click', () => {
     removeDogs();
     introPage();
+  });
+}
+
+function clickBackButtonLogic() {
+  const backBtn = document.querySelector('#back-button');
+
+  backBtn.addEventListener('click', function () {
+    console.log(this.attributes['data-location'].value);
+    if (this.attributes['data-location'].value === 'breed-select') {
+      removeDogs();
+      introPage();
+    }
   });
 }

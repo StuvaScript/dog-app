@@ -38,3 +38,5 @@ async function fetchBreedImagesAndInfo(breedID) {
     console.error(`Error: ${error}`);
   }
 }
+
+//* loop array of breeds, need breed.id, breed.name, breed.image.url
