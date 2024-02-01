@@ -1155,7 +1155,7 @@ function searchBreedsLogic() {
   });
 }
 
-//? **`` Adds a listener onto the breed-wrappers and displays the breed info when clicked
+//? **`` Adds a listener onto the breed-wrappers and displays the breed info when clicked. Also takes the newBreedArray as an argument and feeds that to the back button logic so navigating back is done with stored data so you don't need to fetch data again.
 function navigateToBreedInfoPageLogic(newBreedArray) {
   [...document.querySelectorAll('.breed-wrapper')].forEach((breed) => {
     breed.addEventListener('click', async function (e) {
@@ -1181,16 +1181,18 @@ function clickLogoLogic() {
   });
 }
 
+//? **`` The logic to the back buttons that reads the 'data-location' html attribute to determine what logic to run. Takes the 'newBreedArray' data as an argument so it can populate the previous page off stored data as opposed to fetching data again.
 function clickBackButtonLogic(newBreedArray) {
   const backBtn = document.querySelector('#back-button');
 
   backBtn.addEventListener('click', function () {
-    console.log(this.attributes['data-location'].value);
+    //? **`` This is the back button logic when you are at the 'breed select' page
     if (this.attributes['data-location'].value === 'breed-select') {
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.introPage)();
     }
 
+    //? **`` This is the back button logic when you are at the 'breed info' page
     if (this.attributes['data-location'].value === 'breed-info') {
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBackButton)('breed-select');
@@ -1365,12 +1367,9 @@ __webpack_require__.r(__webpack_exports__);
 (0,_modules_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.introPage)();
 (0,_modules_event_handlers__WEBPACK_IMPORTED_MODULE_1__.clickLogoLogic)();
 
-//todo **`` Working on back button. Need to build a small array with the info at 'function.js' line 42. The info is called from 'searchForBreed()' in 'function.js' and displayed with 'displayBreeds()' in 'dom-manipulation.js'. I need to store that data and when I click the back button, it displays that data from the array.
-
 //todo **`` Add a loading screen
 //todo **`` Add favicon
 //todo **`` Get rid of helper console messages
-//todo **`` Build a back button. Store the retrieved data in an object for faster 'back' loading
 //todo **`` Make the 'removeDogs()' function remove the form also once you get the back button working
 //todo **`` If no breeds are found, make that message appear
 
