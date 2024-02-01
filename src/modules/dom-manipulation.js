@@ -10,12 +10,12 @@ function removeDogs() {
 //* **`` The main breed selector page
 //* ************************************************************************************
 //? **`` Makes a list of all the dog breed names that appeared from the search input and displays them
-function displayBreeds([...returnedBreeds]) {
+function displayBreeds(newBreedArray) {
   const listWrapper = document.createElement('div');
   listWrapper.setAttribute('id', 'list-wrapper');
 
   //? **`` Creates a div for each breed, adds a class name and the breed ID, and appends it to the wrapper
-  returnedBreeds.forEach((breed) => {
+  newBreedArray.forEach((breed) => {
     //? **`` If theres no image, it returns and won't display anything.
     if (!breed.image) {
       return;
@@ -45,7 +45,7 @@ function breedImage(breed, breedWrapper) {
   breedImage.classList.add('breed-image');
   //? **`` Creates the image
   const img = document.createElement('img');
-  img.setAttribute('src', breed.image.url);
+  img.setAttribute('src', breed.image);
   img.setAttribute('alt', `Picture of ${breed.name} breed`);
   breedImage.append(img);
   breedWrapper.append(breedImage);

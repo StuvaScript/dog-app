@@ -1,4 +1,4 @@
-export { searchForBreed, fetchBreedImagesAndInfo };
+export { searchForBreed, fetchBreedImagesAndInfo, buildBreedArray };
 
 const apiKey = process.env.API_KEY;
 
@@ -39,4 +39,14 @@ async function fetchBreedImagesAndInfo(breedID) {
   }
 }
 
-//* loop array of breeds, need breed.id, breed.name, breed.image.url
+//? **`` Builds a new array from out fetched data with only the data we need.
+function buildBreedArray(returnedBreeds) {
+  const breedArray = [];
+  returnedBreeds.forEach((breed, index) => {
+    breedArray[index] = {};
+    breedArray[index].id = breed.id;
+    breedArray[index].name = breed.name;
+    breedArray[index].image = breed.image.url;
+  });
+  return breedArray;
+}

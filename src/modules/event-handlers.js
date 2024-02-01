@@ -5,7 +5,11 @@ import {
   introPage,
   removeDogs,
 } from './dom-manipulation';
-import { fetchBreedImagesAndInfo, searchForBreed } from './functions';
+import {
+  buildBreedArray,
+  fetchBreedImagesAndInfo,
+  searchForBreed,
+} from './functions';
 
 export { searchBreedsLogic, clickLogoLogic };
 
@@ -23,7 +27,8 @@ function searchBreedsLogic() {
     const returnedBreeds = await searchForBreed(inputField.value);
     backButton('breed-select');
     clickBackButtonLogic();
-    displayBreeds(returnedBreeds);
+    const newBreedArray = buildBreedArray(returnedBreeds);
+    displayBreeds(newBreedArray);
     inputField.value = '';
     navigateToBreedInfoPageLogic();
   });
