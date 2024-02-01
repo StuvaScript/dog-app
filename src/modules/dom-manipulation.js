@@ -1,4 +1,4 @@
-export { displayBreeds, removeDogs, displayInfo, introPage, backButton };
+export { displayBreeds, removeDogs, displayInfo, introPage, displayBackButton };
 
 const main = document.querySelector('main');
 
@@ -150,7 +150,7 @@ function introPage() {
 }
 
 //? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.
-function backButton(location) {
+function displayBackButton(location) {
   const goBack = document.createElement('div');
   goBack.setAttribute('id', 'back-button');
   goBack.setAttribute('data-location', `${location}`);

@@ -947,7 +947,7 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   backButton: () => (/* binding */ backButton),
+/* harmony export */   displayBackButton: () => (/* binding */ displayBackButton),
 /* harmony export */   displayBreeds: () => (/* binding */ displayBreeds),
 /* harmony export */   displayInfo: () => (/* binding */ displayInfo),
 /* harmony export */   introPage: () => (/* binding */ introPage),
@@ -1105,7 +1105,7 @@ function introPage() {
 }
 
 //? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.
-function backButton(location) {
+function displayBackButton(location) {
   const goBack = document.createElement('div');
   goBack.setAttribute('id', 'back-button');
   goBack.setAttribute('data-location', `${location}`);
@@ -1146,17 +1146,17 @@ function searchBreedsLogic() {
     }
     (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
     const returnedBreeds = await (0,_functions__WEBPACK_IMPORTED_MODULE_1__.searchForBreed)(inputField.value);
-    (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.backButton)('breed-select');
-    clickBackButtonLogic();
+    (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBackButton)('breed-select');
     const newBreedArray = (0,_functions__WEBPACK_IMPORTED_MODULE_1__.buildBreedArray)(returnedBreeds);
     (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBreeds)(newBreedArray);
     inputField.value = '';
-    navigateToBreedInfoPageLogic();
+    clickBackButtonLogic();
+    navigateToBreedInfoPageLogic(newBreedArray);
   });
 }
 
 //? **`` Adds a listener onto the breed-wrappers and displays the breed info when clicked
-function navigateToBreedInfoPageLogic() {
+function navigateToBreedInfoPageLogic(newBreedArray) {
   [...document.querySelectorAll('.breed-wrapper')].forEach((breed) => {
     breed.addEventListener('click', async function (e) {
       console.log(e);
@@ -1164,8 +1164,9 @@ function navigateToBreedInfoPageLogic() {
       const breedID = this.attributes['data-breed-id'].value;
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
       const returnedInfo = await (0,_functions__WEBPACK_IMPORTED_MODULE_1__.fetchBreedImagesAndInfo)(breedID);
-      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.backButton)('breed-info');
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBackButton)('breed-info');
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayInfo)(returnedInfo);
+      clickBackButtonLogic(newBreedArray);
     });
   });
 }
@@ -1180,7 +1181,7 @@ function clickLogoLogic() {
   });
 }
 
-function clickBackButtonLogic() {
+function clickBackButtonLogic(newBreedArray) {
   const backBtn = document.querySelector('#back-button');
 
   backBtn.addEventListener('click', function () {
@@ -1188,6 +1189,14 @@ function clickBackButtonLogic() {
     if (this.attributes['data-location'].value === 'breed-select') {
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.introPage)();
+    }
+
+    if (this.attributes['data-location'].value === 'breed-info') {
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBackButton)('breed-select');
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBreeds)(newBreedArray);
+      clickBackButtonLogic();
+      navigateToBreedInfoPageLogic(newBreedArray);
     }
   });
 }

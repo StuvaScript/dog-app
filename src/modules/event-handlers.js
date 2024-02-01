@@ -1,5 +1,5 @@
 import {
-  backButton,
+  displayBackButton,
   displayBreeds,
   displayInfo,
   introPage,
@@ -25,17 +25,17 @@ function searchBreedsLogic() {
     }
     removeDogs();
     const returnedBreeds = await searchForBreed(inputField.value);
-    backButton('breed-select');
-    clickBackButtonLogic();
+    displayBackButton('breed-select');
     const newBreedArray = buildBreedArray(returnedBreeds);
     displayBreeds(newBreedArray);
     inputField.value = '';
-    navigateToBreedInfoPageLogic();
+    clickBackButtonLogic();
+    navigateToBreedInfoPageLogic(newBreedArray);
   });
 }
 
 //? **`` Adds a listener onto the breed-wrappers and displays the breed info when clicked
-function navigateToBreedInfoPageLogic() {
+function navigateToBreedInfoPageLogic(newBreedArray) {
   [...document.querySelectorAll('.breed-wrapper')].forEach((breed) => {
     breed.addEventListener('click', async function (e) {
       console.log(e);
@@ -43,8 +43,9 @@ function navigateToBreedInfoPageLogic() {
       const breedID = this.attributes['data-breed-id'].value;
       removeDogs();
       const returnedInfo = await fetchBreedImagesAndInfo(breedID);
-      backButton('breed-info');
+      displayBackButton('breed-info');
       displayInfo(returnedInfo);
+      clickBackButtonLogic(newBreedArray);
     });
   });
 }
@@ -59,7 +60,7 @@ function clickLogoLogic() {
   });
 }
 
-function clickBackButtonLogic() {
+function clickBackButtonLogic(newBreedArray) {
   const backBtn = document.querySelector('#back-button');
 
   backBtn.addEventListener('click', function () {
@@ -67,6 +68,14 @@ function clickBackButtonLogic() {
     if (this.attributes['data-location'].value === 'breed-select') {
       removeDogs();
       introPage();
+    }
+
+    if (this.attributes['data-location'].value === 'breed-info') {
+      removeDogs();
+      displayBackButton('breed-select');
+      displayBreeds(newBreedArray);
+      clickBackButtonLogic();
+      navigateToBreedInfoPageLogic(newBreedArray);
     }
   });
 }
