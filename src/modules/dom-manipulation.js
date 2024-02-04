@@ -136,17 +136,19 @@ function displayInfo(returnedInfo) {
 
 //? **`` The initial greeting for the app
 function introPage() {
-  const para1 = document.createElement('p');
-  para1.innerText =
-    'dog ipsum heckin tippy taps blep gib boi fluffer yapper long boi pupperino pupperino smol fren mahm bamboozle sploot pupperino nuggs gib blop snacc danger noodle long boi sploot snacc sploot chimken snacc woofer chimken fren chonky awoo teef danger noodle bamboozle pupperino blop mahm pupperino mahm pats floof awoo floof fluffer floof blop yapper cronch pupperino boop loaf tippy taps teef heck awoo smol hooman boi sploot sleppy woofer floofer chonk derp walkies awoo awoo nuggs snoot mahm hooman cronch tippy taps danger noodle boi zoomies danger noodle nuggs derp pupper tippy taps snacc snoot';
+  const welcomeWrapper = document.createElement('div');
+  welcomeWrapper.classList.add('welcome-wrapper');
 
-  const para2 = document.createElement('p');
-  para2.innerText =
-    'pupperino pupperino pupper heckin floof boop bamboozle noods zoomies yapper nuggs chonky walkies pats boop awoo derp fren woofer gib gib toe beans teef noods snoot heck fren zoomies pupper mahm loaf smol fren cloud loaf floofer cronch snoot floof yapper bork pats derp bamboozle derp loaf chonk zoomies chonky sploot floofer fren pupper derp henlo pats pats fluffer long boi sleppy fluffer tippy taps mahm danger noodle hooman blop bork yapper henlo fren snoot sleppy henlo cloud bamboozle bork boop';
+  const h1 = document.createElement('h1');
+  h1.innerText = 'Welcome to the Dog App!';
 
-  const br = document.createElement('br');
+  const para = document.createElement('p');
+  para.innerText =
+    'Doggo ipsum pupperino pupper heckin floof boop bamboozle noods zoomies yapper nuggs chonky walkies pats boop awoo derp fren woofer gib gib toe beans teef noods snoot heck mahm loaf smol cloud floofer cronch snoot yapper bork bamboozle derp chonk sploot henlo pats long boi sleppy fluffer tippy taps danger noodle hooman blop.';
 
-  main.append(para1, br, para2);
+  welcomeWrapper.append(h1, para);
+
+  main.append(welcomeWrapper);
 }
 
 //? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.

@@ -421,7 +421,55 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.breed-image > img {
+___CSS_LOADER_EXPORT___.push([module.id, `body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  height: 10vh;
+  background: goldenrod;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  height: 100%;
+  background: lightslategrey;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+form {
+  justify-self: center;
+  background: palegreen;
+}
+
+.welcome-wrapper {
+  align-self: center;
+  justify-self: center;
+  width: clamp(min(90vw, 350px), 60vw, 900px);
+  background: paleturquoise;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+footer {
+  height: 5vh;
+  background: salmon;
+}
+
+.breed-image > img {
   width: 250px;
 }
 
@@ -438,7 +486,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.breed-image > img {
   color: green;
   cursor: pointer;
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;AACjB","sourcesContent":[".breed-image > img {\n  width: 250px;\n}\n\n.breed-wrapper {\n  cursor: pointer;\n}\n\n.info-image > img {\n  width: 250px;\n}\n\n#back-button {\n  font-size: 2rem;\n  color: green;\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,8BAA8B;EAC9B,yCAAyC;AAC3C;;AAEA;EACE,YAAY;EACZ,qBAAqB;EACrB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,YAAY;EACZ,0BAA0B;EAC1B,aAAa;EACb,4BAA4B;AAC9B;;AAEA;EACE,oBAAoB;EACpB,qBAAqB;AACvB;;AAEA;EACE,kBAAkB;EAClB,oBAAoB;EACpB,2CAA2C;EAC3C,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,SAAS;;EAET;IACE,kBAAkB;EACpB;AACF;;AAEA;EACE,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;AACjB","sourcesContent":["body {\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\nheader {\n  height: 10vh;\n  background: goldenrod;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\nmain {\n  height: 100%;\n  background: lightslategrey;\n  display: grid;\n  grid-template-rows: auto 1fr;\n}\n\nform {\n  justify-self: center;\n  background: palegreen;\n}\n\n.welcome-wrapper {\n  align-self: center;\n  justify-self: center;\n  width: clamp(min(90vw, 350px), 60vw, 900px);\n  background: paleturquoise;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 20px;\n\n  h1 {\n    text-align: center;\n  }\n}\n\nfooter {\n  height: 5vh;\n  background: salmon;\n}\n\n.breed-image > img {\n  width: 250px;\n}\n\n.breed-wrapper {\n  cursor: pointer;\n}\n\n.info-image > img {\n  width: 250px;\n}\n\n#back-button {\n  font-size: 2rem;\n  color: green;\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1091,17 +1139,19 @@ function displayInfo(returnedInfo) {
 
 //? **`` The initial greeting for the app
 function introPage() {
-  const para1 = document.createElement('p');
-  para1.innerText =
-    'dog ipsum heckin tippy taps blep gib boi fluffer yapper long boi pupperino pupperino smol fren mahm bamboozle sploot pupperino nuggs gib blop snacc danger noodle long boi sploot snacc sploot chimken snacc woofer chimken fren chonky awoo teef danger noodle bamboozle pupperino blop mahm pupperino mahm pats floof awoo floof fluffer floof blop yapper cronch pupperino boop loaf tippy taps teef heck awoo smol hooman boi sploot sleppy woofer floofer chonk derp walkies awoo awoo nuggs snoot mahm hooman cronch tippy taps danger noodle boi zoomies danger noodle nuggs derp pupper tippy taps snacc snoot';
+  const welcomeWrapper = document.createElement('div');
+  welcomeWrapper.classList.add('welcome-wrapper');
 
-  const para2 = document.createElement('p');
-  para2.innerText =
-    'pupperino pupperino pupper heckin floof boop bamboozle noods zoomies yapper nuggs chonky walkies pats boop awoo derp fren woofer gib gib toe beans teef noods snoot heck fren zoomies pupper mahm loaf smol fren cloud loaf floofer cronch snoot floof yapper bork pats derp bamboozle derp loaf chonk zoomies chonky sploot floofer fren pupper derp henlo pats pats fluffer long boi sleppy fluffer tippy taps mahm danger noodle hooman blop bork yapper henlo fren snoot sleppy henlo cloud bamboozle bork boop';
+  const h1 = document.createElement('h1');
+  h1.innerText = 'Welcome to the Dog App!';
 
-  const br = document.createElement('br');
+  const para = document.createElement('p');
+  para.innerText =
+    'Doggo ipsum pupperino pupper heckin floof boop bamboozle noods zoomies yapper nuggs chonky walkies pats boop awoo derp fren woofer gib gib toe beans teef noods snoot heck mahm loaf smol cloud floofer cronch snoot yapper bork bamboozle derp chonk sploot henlo pats long boi sleppy fluffer tippy taps danger noodle hooman blop.';
 
-  main.append(para1, br, para2);
+  welcomeWrapper.append(h1, para);
+
+  main.append(welcomeWrapper);
 }
 
 //? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.
@@ -1220,7 +1270,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 
 
-const apiKey = {"LESSOPEN":"| /usr/bin/lesspipe %s","LANGUAGE":"en_US","USER":"stu","npm_config_user_agent":"npm/9.6.5 node/v18.12.1 linux x64 workspaces/false","XDG_SEAT":"seat0","XDG_SESSION_TYPE":"x11","GIT_ASKPASS":"/usr/share/code/resources/app/extensions/git/dist/askpass.sh","npm_node_execpath":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","SHLVL":"2","npm_config_noproxy":"","HOME":"/home/stu","CHROME_DESKTOP":"code-url-handler.desktop","OLDPWD":"/home/stu","TERM_PROGRAM_VERSION":"1.85.2","DESKTOP_SESSION":"xubuntu","NVM_BIN":"/home/stu/.nvm/versions/node/v18.12.1/bin","npm_package_json":"/home/stu/repos/dog-app/package.json","NVM_INC":"/home/stu/.nvm/versions/node/v18.12.1/include/node","XDG_SEAT_PATH":"/org/freedesktop/DisplayManager/Seat0","VSCODE_GIT_ASKPASS_MAIN":"/usr/share/code/resources/app/extensions/git/dist/askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"/usr/share/code/code","npm_config_userconfig":"/home/stu/.npmrc","npm_config_local_prefix":"/home/stu/repos/dog-app","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","COLORTERM":"truecolor","COLOR":"1","NVM_DIR":"/home/stu/.nvm","npm_config_metrics_registry":"https://registry.npmjs.org/","QT_QPA_PLATFORMTHEME":"gtk2","LOGNAME":"stu","WINDOWID":"71303171","_":"/home/stu/.nvm/versions/node/v18.12.1/bin/npx","npm_config_prefix":"/home/stu/.nvm/versions/node/v18.12.1","XDG_SESSION_CLASS":"user","CLUTTER_BACKEND":"x11","TERM":"xterm-256color","GTK_OVERLAY_SCROLLING":"0","XDG_SESSION_ID":"c1","npm_config_cache":"/home/stu/.npm","npm_config_node_gyp":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js","PATH":"/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/node_modules/.bin:/home/stu/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/stu/.nvm/versions/node/v18.12.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","SESSION_MANAGER":"local/stu-VirtualBox:@/tmp/.ICE-unix/1415,unix/stu-VirtualBox:/tmp/.ICE-unix/1415","GDM_LANG":"en_US","NODE":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","npm_package_name":"dog-app","XDG_SESSION_PATH":"/org/freedesktop/DisplayManager/Session0","XDG_MENU_PREFIX":"xfce-","XDG_RUNTIME_DIR":"/run/user/1000","GDK_BACKEND":"x11","DISPLAY":":0.0","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"XFCE","XDG_SESSION_DESKTOP":"xubuntu","XAUTHORITY":"/home/stu/.Xauthority","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","VSCODE_GIT_IPC_HANDLE":"/run/user/1000/vscode-git-bb3cc7d95e.sock","TERM_PROGRAM":"vscode","npm_lifecycle_script":"webpack","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","XDG_GREETER_DATA_DIR":"/var/lib/lightdm-data/stu","ORIGINAL_XDG_CURRENT_DESKTOP":"XFCE","SHELL":"/bin/bash","npm_package_version":"1.0.0","npm_lifecycle_event":"npx","QT_ACCESSIBILITY":"1","GDMSESSION":"xubuntu","LESSCLOSE":"/usr/bin/lesspipe %s %s","GPG_AGENT_INFO":"/run/user/1000/gnupg/S.gpg-agent:0:1","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","XDG_VTNR":"7","npm_config_globalconfig":"/home/stu/.nvm/versions/node/v18.12.1/etc/npmrc","npm_config_init_module":"/home/stu/.npm-init.js","PWD":"/home/stu/repos/dog-app","npm_execpath":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/bin/npx-cli.js","XDG_CONFIG_DIRS":"/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg","NVM_CD_FLAGS":"","XDG_DATA_DIRS":"/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share","npm_config_global_prefix":"/home/stu/.nvm/versions/node/v18.12.1","npm_command":"exec","VTE_VERSION":"6800","INIT_CWD":"/home/stu/repos/dog-app","EDITOR":"vi","API_KEY":"live_wMtePYATvRDPMV45HmQ4uScPw5A7KlmBFqZl5Pck9PXE6SUsEePFRUMGsJz7BXUC"}.API_KEY;
+const apiKey = {"LESSOPEN":"| /usr/bin/lesspipe %s","LANGUAGE":"en_US","USER":"stu","npm_config_user_agent":"npm/9.6.5 node/v18.12.1 linux x64 workspaces/false","XDG_SEAT":"seat0","XDG_SESSION_TYPE":"x11","GIT_ASKPASS":"/usr/share/code/resources/app/extensions/git/dist/askpass.sh","npm_node_execpath":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","SHLVL":"2","npm_config_noproxy":"","HOME":"/home/stu","CHROME_DESKTOP":"code-url-handler.desktop","OLDPWD":"/home/stu","TERM_PROGRAM_VERSION":"1.85.2","DESKTOP_SESSION":"xubuntu","NVM_BIN":"/home/stu/.nvm/versions/node/v18.12.1/bin","npm_package_json":"/home/stu/repos/dog-app/package.json","NVM_INC":"/home/stu/.nvm/versions/node/v18.12.1/include/node","XDG_SEAT_PATH":"/org/freedesktop/DisplayManager/Seat0","VSCODE_GIT_ASKPASS_MAIN":"/usr/share/code/resources/app/extensions/git/dist/askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"/usr/share/code/code","npm_config_userconfig":"/home/stu/.npmrc","npm_config_local_prefix":"/home/stu/repos/dog-app","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","COLORTERM":"truecolor","COLOR":"1","NVM_DIR":"/home/stu/.nvm","npm_config_metrics_registry":"https://registry.npmjs.org/","QT_QPA_PLATFORMTHEME":"gtk2","LOGNAME":"stu","WINDOWID":"71303171","_":"/home/stu/.nvm/versions/node/v18.12.1/bin/npx","npm_config_prefix":"/home/stu/.nvm/versions/node/v18.12.1","XDG_SESSION_CLASS":"user","CLUTTER_BACKEND":"x11","TERM":"xterm-256color","GTK_OVERLAY_SCROLLING":"0","XDG_SESSION_ID":"c1","npm_config_cache":"/home/stu/.npm","npm_config_node_gyp":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js","PATH":"/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/node_modules/.bin:/home/stu/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/stu/.nvm/versions/node/v18.12.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","SESSION_MANAGER":"local/stu-VirtualBox:@/tmp/.ICE-unix/1359,unix/stu-VirtualBox:/tmp/.ICE-unix/1359","GDM_LANG":"en_US","NODE":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","npm_package_name":"dog-app","XDG_SESSION_PATH":"/org/freedesktop/DisplayManager/Session0","XDG_MENU_PREFIX":"xfce-","XDG_RUNTIME_DIR":"/run/user/1000","GDK_BACKEND":"x11","DISPLAY":":0.0","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"XFCE","XDG_SESSION_DESKTOP":"xubuntu","XAUTHORITY":"/home/stu/.Xauthority","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","VSCODE_GIT_IPC_HANDLE":"/run/user/1000/vscode-git-bb3cc7d95e.sock","TERM_PROGRAM":"vscode","npm_lifecycle_script":"webpack","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","XDG_GREETER_DATA_DIR":"/var/lib/lightdm-data/stu","ORIGINAL_XDG_CURRENT_DESKTOP":"XFCE","SHELL":"/bin/bash","npm_package_version":"1.0.0","npm_lifecycle_event":"npx","QT_ACCESSIBILITY":"1","GDMSESSION":"xubuntu","LESSCLOSE":"/usr/bin/lesspipe %s %s","GPG_AGENT_INFO":"/run/user/1000/gnupg/S.gpg-agent:0:1","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","XDG_VTNR":"7","npm_config_globalconfig":"/home/stu/.nvm/versions/node/v18.12.1/etc/npmrc","npm_config_init_module":"/home/stu/.npm-init.js","PWD":"/home/stu/repos/dog-app","npm_execpath":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/bin/npx-cli.js","XDG_CONFIG_DIRS":"/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg","NVM_CD_FLAGS":"","XDG_DATA_DIRS":"/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share","npm_config_global_prefix":"/home/stu/.nvm/versions/node/v18.12.1","npm_command":"exec","VTE_VERSION":"6800","INIT_CWD":"/home/stu/repos/dog-app","EDITOR":"vi","API_KEY":"live_wMtePYATvRDPMV45HmQ4uScPw5A7KlmBFqZl5Pck9PXE6SUsEePFRUMGsJz7BXUC"}.API_KEY;
 
 //? **`` Receives the value from the search input and fetches the dog breed data
 async function searchForBreed(searchValue) {
@@ -1370,7 +1420,6 @@ __webpack_require__.r(__webpack_exports__);
 //todo **`` Add a loading screen
 //todo **`` Add favicon
 //todo **`` Get rid of helper console messages
-//todo **`` Make the 'removeDogs()' function remove the form also once you get the back button working
 //todo **`` If no breeds are found, make that message appear
 
 })();
