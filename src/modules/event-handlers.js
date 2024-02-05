@@ -23,12 +23,15 @@ function searchBreedsLogic() {
     if (inputField.value === '') {
       return;
     }
-    removeDogs();
     const returnedBreeds = await searchForBreed(inputField.value);
+    inputField.value = '';
+    if (returnedBreeds.length === 0) {
+      return;
+    }
+    removeDogs();
     displayBackButton('breed-select');
     const newBreedArray = buildBreedArray(returnedBreeds);
     displayBreeds(newBreedArray);
-    inputField.value = '';
     clickBackButtonLogic();
     navigateToBreedInfoPageLogic(newBreedArray);
   });

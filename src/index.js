@@ -1,4 +1,4 @@
-import { introPage } from './modules/dom-manipulation';
+import { displaySearchIcon, introPage } from './modules/dom-manipulation';
 import { clickLogoLogic, searchBreedsLogic } from './modules/event-handlers';
 import './normalize.css';
 import './style.css';
@@ -6,7 +6,9 @@ import './style.css';
 searchBreedsLogic();
 introPage();
 clickLogoLogic();
+displaySearchIcon();
 
+//! **`` npx webpack --watch FOOOOOOOL
 //todo **`` Add a loading screen
 //todo **`` Add favicon
 //todo **`` Get rid of helper console messages

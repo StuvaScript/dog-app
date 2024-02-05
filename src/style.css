@@ -23,7 +23,51 @@ main {
 
 form {
   justify-self: center;
-  background: palegreen;
+  /* background: palegreen; */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  #search-input {
+    padding: 10px 60px 10px 30px;
+    font-size: 1.25rem;
+    border-radius: 50px;
+    border: none;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    width: clamp(min(90vw, 350px), 60vw, 400px);
+  }
+
+  #search-input:focus {
+    /*todo **`` Change the color of the outline */
+    outline: none;
+  }
+
+  #submit-button {
+    position: relative;
+    right: -2px;
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    padding: 10px;
+    background: #1ce;
+    border-radius: 50%;
+    border: none;
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  #submit-button:hover {
+    background: rgb(11, 149, 173);
+  }
 }
 
 .welcome-wrapper {

@@ -1,4 +1,13 @@
-export { displayBreeds, removeDogs, displayInfo, introPage, displayBackButton };
+export {
+  displayBreeds,
+  removeDogs,
+  displayInfo,
+  introPage,
+  displayBackButton,
+  displaySearchIcon,
+};
+
+import searchIcon from '../images/search.png';
 
 const main = document.querySelector('main');
 
@@ -158,4 +167,9 @@ function displayBackButton(location) {
   goBack.setAttribute('data-location', `${location}`);
   goBack.innerText = 'Go back';
   main.append(goBack);
+}
+
+//? **`` Displays the search icon
+function displaySearchIcon() {
+  document.querySelector('#submit-button img').setAttribute('src', searchIcon);
 }
