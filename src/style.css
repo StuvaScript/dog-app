@@ -1,14 +1,19 @@
 body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* height: 100vh; */
   font-family: Arial, Helvetica, sans-serif;
+
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+
+  display: grid;
+  grid-template-rows: 10vh minmax(85vh, 100%) 5vh;
 }
 
 header {
-  height: 10vh;
+  /* height: 10vh; */
   background: goldenrod;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +22,7 @@ header {
 main {
   height: 100%;
   background: lightslategrey;
+
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -24,6 +30,7 @@ main {
 form {
   justify-self: center;
   /* background: palegreen; */
+
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -40,7 +47,7 @@ form {
 
   #search-input:focus {
     /*todo **`` Change the color of the outline */
-    outline: none;
+    /* outline: none; */
   }
 
   #submit-button {
@@ -52,16 +59,17 @@ form {
     background: #1ce;
     border-radius: 50%;
     border: none;
-    width: 43px;
-    height: 43px;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     img {
-      height: 30px;
-      width: 30px;
+      height: 25px;
+      width: 25px;
     }
   }
 
@@ -70,11 +78,12 @@ form {
   }
 }
 
-.welcome-wrapper {
+#welcome-wrapper {
   align-self: center;
   justify-self: center;
   width: clamp(min(90vw, 350px), 60vw, 900px);
   background: paleturquoise;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,17 +94,28 @@ form {
   }
 }
 
-footer {
-  height: 5vh;
-  background: salmon;
+#list-wrapper {
+  padding: 10px;
+
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+
+  .breed-wrapper {
+    cursor: pointer;
+
+    .breed-name {
+      text-align: center;
+      font-weight: bold;
+      /* todo **`` Fix the sizing issue when names are too long */
+      font-size: 1.25rem;
+    }
+  }
 }
 
 .breed-image > img {
   width: 250px;
-}
-
-.breed-wrapper {
-  cursor: pointer;
 }
 
 .info-image > img {
@@ -106,4 +126,12 @@ footer {
   font-size: 2rem;
   color: green;
   cursor: pointer;
+  justify-self: center;
+
+  /* position: absolute; */
+}
+
+footer {
+  /* height: 5vh; */
+  background: salmon;
 }

@@ -146,7 +146,7 @@ function displayInfo(returnedInfo) {
 //? **`` The initial greeting for the app
 function introPage() {
   const welcomeWrapper = document.createElement('div');
-  welcomeWrapper.classList.add('welcome-wrapper');
+  welcomeWrapper.setAttribute('id', 'welcome-wrapper');
 
   const h1 = document.createElement('h1');
   h1.innerText = 'Welcome to the Dog App!';

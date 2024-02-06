@@ -13,3 +13,4 @@ displaySearchIcon();
 //todo **`` Add favicon
 //todo **`` Get rid of helper console messages
 //todo **`` If no breeds are found, make that message appear
+//todo **`` Do all todo's in CSS file
