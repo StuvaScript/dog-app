@@ -422,16 +422,21 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* height: 100vh; */
   font-family: Arial, Helvetica, sans-serif;
+
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+
+  display: grid;
+  grid-template-rows: 10vh minmax(85vh, 100%) 5vh;
 }
 
 header {
-  height: 10vh;
+  /* height: 10vh; */
   background: goldenrod;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -440,6 +445,7 @@ header {
 main {
   height: 100%;
   background: lightslategrey;
+
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -447,6 +453,7 @@ main {
 form {
   justify-self: center;
   /* background: palegreen; */
+
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -463,7 +470,7 @@ form {
 
   #search-input:focus {
     /*todo **\`\` Change the color of the outline */
-    outline: none;
+    /* outline: none; */
   }
 
   #submit-button {
@@ -475,16 +482,17 @@ form {
     background: #1ce;
     border-radius: 50%;
     border: none;
-    width: 43px;
-    height: 43px;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     img {
-      height: 30px;
-      width: 30px;
+      height: 25px;
+      width: 25px;
     }
   }
 
@@ -493,11 +501,12 @@ form {
   }
 }
 
-.welcome-wrapper {
+#welcome-wrapper {
   align-self: center;
   justify-self: center;
   width: clamp(min(90vw, 350px), 60vw, 900px);
   background: paleturquoise;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -508,17 +517,28 @@ form {
   }
 }
 
-footer {
-  height: 5vh;
-  background: salmon;
+#list-wrapper {
+  padding: 10px;
+
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+
+  .breed-wrapper {
+    cursor: pointer;
+
+    .breed-name {
+      text-align: center;
+      font-weight: bold;
+      /* todo **\`\` Fix the sizing issue when names are too long */
+      font-size: 1.25rem;
+    }
+  }
 }
 
 .breed-image > img {
   width: 250px;
-}
-
-.breed-wrapper {
-  cursor: pointer;
 }
 
 .info-image > img {
@@ -529,8 +549,16 @@ footer {
   font-size: 2rem;
   color: green;
   cursor: pointer;
+  justify-self: center;
+
+  /* position: absolute; */
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,8BAA8B;EAC9B,yCAAyC;AAC3C;;AAEA;EACE,YAAY;EACZ,qBAAqB;EACrB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,YAAY;EACZ,0BAA0B;EAC1B,aAAa;EACb,4BAA4B;AAC9B;;AAEA;EACE,oBAAoB;EACpB,2BAA2B;EAC3B,aAAa;EACb,+BAA+B;EAC/B,mBAAmB;;EAEnB;IACE,4BAA4B;IAC5B,kBAAkB;IAClB,mBAAmB;IACnB,YAAY;IACZ,mBAAmB;IACnB,eAAe;IACf,2CAA2C;EAC7C;;EAEA;IACE,6CAA6C;IAC7C,aAAa;EACf;;EAEA;IACE,kBAAkB;IAClB,WAAW;IACX,mBAAmB;IACnB,eAAe;IACf,aAAa;IACb,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,WAAW;IACX,YAAY;;IAEZ,aAAa;IACb,uBAAuB;IACvB,mBAAmB;;IAEnB;MACE,YAAY;MACZ,WAAW;IACb;EACF;;EAEA;IACE,6BAA6B;EAC/B;AACF;;AAEA;EACE,kBAAkB;EAClB,oBAAoB;EACpB,2CAA2C;EAC3C,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,SAAS;;EAET;IACE,kBAAkB;EACpB;AACF;;AAEA;EACE,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;AACjB","sourcesContent":["body {\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\nheader {\n  height: 10vh;\n  background: goldenrod;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\nmain {\n  height: 100%;\n  background: lightslategrey;\n  display: grid;\n  grid-template-rows: auto 1fr;\n}\n\nform {\n  justify-self: center;\n  /* background: palegreen; */\n  display: grid;\n  grid-template-columns: 1fr auto;\n  align-items: center;\n\n  #search-input {\n    padding: 10px 60px 10px 30px;\n    font-size: 1.25rem;\n    border-radius: 50px;\n    border: none;\n    grid-column: 1 / -1;\n    grid-row: 1 / 2;\n    width: clamp(min(90vw, 350px), 60vw, 400px);\n  }\n\n  #search-input:focus {\n    /*todo **`` Change the color of the outline */\n    outline: none;\n  }\n\n  #submit-button {\n    position: relative;\n    right: -2px;\n    grid-column: 2 / -1;\n    grid-row: 1 / 2;\n    padding: 10px;\n    background: #1ce;\n    border-radius: 50%;\n    border: none;\n    width: 43px;\n    height: 43px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    img {\n      height: 30px;\n      width: 30px;\n    }\n  }\n\n  #submit-button:hover {\n    background: rgb(11, 149, 173);\n  }\n}\n\n.welcome-wrapper {\n  align-self: center;\n  justify-self: center;\n  width: clamp(min(90vw, 350px), 60vw, 900px);\n  background: paleturquoise;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 20px;\n\n  h1 {\n    text-align: center;\n  }\n}\n\nfooter {\n  height: 5vh;\n  background: salmon;\n}\n\n.breed-image > img {\n  width: 250px;\n}\n\n.breed-wrapper {\n  cursor: pointer;\n}\n\n.info-image > img {\n  width: 250px;\n}\n\n#back-button {\n  font-size: 2rem;\n  color: green;\n  cursor: pointer;\n}\n"],"sourceRoot":""}]);
+
+footer {
+  /* height: 5vh; */
+  background: salmon;
+}
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,yCAAyC;;EAEzC,mBAAmB;EACnB,4BAA4B;EAC5B,oCAAoC;;EAEpC,aAAa;EACb,+CAA+C;AACjD;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;;EAErB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,YAAY;EACZ,0BAA0B;;EAE1B,aAAa;EACb,4BAA4B;AAC9B;;AAEA;EACE,oBAAoB;EACpB,2BAA2B;;EAE3B,aAAa;EACb,+BAA+B;EAC/B,mBAAmB;;EAEnB;IACE,4BAA4B;IAC5B,kBAAkB;IAClB,mBAAmB;IACnB,YAAY;IACZ,mBAAmB;IACnB,eAAe;IACf,2CAA2C;EAC7C;;EAEA;IACE,6CAA6C;IAC7C,mBAAmB;EACrB;;EAEA;IACE,kBAAkB;IAClB,WAAW;IACX,mBAAmB;IACnB,eAAe;IACf,aAAa;IACb,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,WAAW;IACX,YAAY;IACZ,iBAAiB;;IAEjB,aAAa;IACb,uBAAuB;IACvB,mBAAmB;;IAEnB;MACE,YAAY;MACZ,WAAW;IACb;EACF;;EAEA;IACE,6BAA6B;EAC/B;AACF;;AAEA;EACE,kBAAkB;EAClB,oBAAoB;EACpB,2CAA2C;EAC3C,yBAAyB;;EAEzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,SAAS;;EAET;IACE,kBAAkB;EACpB;AACF;;AAEA;EACE,aAAa;;EAEb,aAAa;EACb,qBAAqB;EACrB,2DAA2D;EAC3D,SAAS;;EAET;IACE,eAAe;;IAEf;MACE,kBAAkB;MAClB,iBAAiB;MACjB,2DAA2D;MAC3D,kBAAkB;IACpB;EACF;AACF;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;EACf,oBAAoB;;EAEpB,wBAAwB;AAC1B;;AAEA;EACE,iBAAiB;EACjB,kBAAkB;AACpB","sourcesContent":["body {\n  /* height: 100vh; */\n  font-family: Arial, Helvetica, sans-serif;\n\n  /* display: flex; */\n  /* flex-direction: column; */\n  /* justify-content: space-between; */\n\n  display: grid;\n  grid-template-rows: 10vh minmax(85vh, 100%) 5vh;\n}\n\nheader {\n  /* height: 10vh; */\n  background: goldenrod;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\nmain {\n  height: 100%;\n  background: lightslategrey;\n\n  display: grid;\n  grid-template-rows: auto 1fr;\n}\n\nform {\n  justify-self: center;\n  /* background: palegreen; */\n\n  display: grid;\n  grid-template-columns: 1fr auto;\n  align-items: center;\n\n  #search-input {\n    padding: 10px 60px 10px 30px;\n    font-size: 1.25rem;\n    border-radius: 50px;\n    border: none;\n    grid-column: 1 / -1;\n    grid-row: 1 / 2;\n    width: clamp(min(90vw, 350px), 60vw, 400px);\n  }\n\n  #search-input:focus {\n    /*todo **`` Change the color of the outline */\n    /* outline: none; */\n  }\n\n  #submit-button {\n    position: relative;\n    right: -2px;\n    grid-column: 2 / -1;\n    grid-row: 1 / 2;\n    padding: 10px;\n    background: #1ce;\n    border-radius: 50%;\n    border: none;\n    width: 35px;\n    height: 35px;\n    margin-right: 5px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    img {\n      height: 25px;\n      width: 25px;\n    }\n  }\n\n  #submit-button:hover {\n    background: rgb(11, 149, 173);\n  }\n}\n\n#welcome-wrapper {\n  align-self: center;\n  justify-self: center;\n  width: clamp(min(90vw, 350px), 60vw, 900px);\n  background: paleturquoise;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 20px;\n\n  h1 {\n    text-align: center;\n  }\n}\n\n#list-wrapper {\n  padding: 10px;\n\n  display: grid;\n  justify-items: center;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 10px;\n\n  .breed-wrapper {\n    cursor: pointer;\n\n    .breed-name {\n      text-align: center;\n      font-weight: bold;\n      /* todo **`` Fix the sizing issue when names are too long */\n      font-size: 1.25rem;\n    }\n  }\n}\n\n.breed-image > img {\n  width: 250px;\n}\n\n.info-image > img {\n  width: 250px;\n}\n\n#back-button {\n  font-size: 2rem;\n  color: green;\n  cursor: pointer;\n  justify-self: center;\n\n  /* position: absolute; */\n}\n\nfooter {\n  /* height: 5vh; */\n  background: salmon;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1188,7 +1216,7 @@ function displayInfo(returnedInfo) {
 //? **`` The initial greeting for the app
 function introPage() {
   const welcomeWrapper = document.createElement('div');
-  welcomeWrapper.classList.add('welcome-wrapper');
+  welcomeWrapper.setAttribute('id', 'welcome-wrapper');
 
   const h1 = document.createElement('h1');
   h1.innerText = 'Welcome to the Dog App!';
@@ -1326,7 +1354,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 
 
-const apiKey = {"LESSOPEN":"| /usr/bin/lesspipe %s","LANGUAGE":"en_US","USER":"stu","npm_config_user_agent":"npm/9.6.5 node/v18.12.1 linux x64 workspaces/false","XDG_SEAT":"seat0","XDG_SESSION_TYPE":"x11","GIT_ASKPASS":"/usr/share/code/resources/app/extensions/git/dist/askpass.sh","npm_node_execpath":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","SHLVL":"2","npm_config_noproxy":"","HOME":"/home/stu","CHROME_DESKTOP":"code-url-handler.desktop","OLDPWD":"/home/stu","TERM_PROGRAM_VERSION":"1.85.2","DESKTOP_SESSION":"xubuntu","NVM_BIN":"/home/stu/.nvm/versions/node/v18.12.1/bin","npm_package_json":"/home/stu/repos/dog-app/package.json","NVM_INC":"/home/stu/.nvm/versions/node/v18.12.1/include/node","XDG_SEAT_PATH":"/org/freedesktop/DisplayManager/Seat0","VSCODE_GIT_ASKPASS_MAIN":"/usr/share/code/resources/app/extensions/git/dist/askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"/usr/share/code/code","npm_config_userconfig":"/home/stu/.npmrc","npm_config_local_prefix":"/home/stu/repos/dog-app","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","COLORTERM":"truecolor","COLOR":"1","NVM_DIR":"/home/stu/.nvm","npm_config_metrics_registry":"https://registry.npmjs.org/","QT_QPA_PLATFORMTHEME":"gtk2","LOGNAME":"stu","WINDOWID":"73400323","_":"/home/stu/.nvm/versions/node/v18.12.1/bin/npx","npm_config_prefix":"/home/stu/.nvm/versions/node/v18.12.1","XDG_SESSION_CLASS":"user","CLUTTER_BACKEND":"x11","TERM":"xterm-256color","GTK_OVERLAY_SCROLLING":"0","XDG_SESSION_ID":"c1","npm_config_cache":"/home/stu/.npm","npm_config_node_gyp":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js","PATH":"/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/node_modules/.bin:/home/stu/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/stu/.nvm/versions/node/v18.12.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","SESSION_MANAGER":"local/stu-VirtualBox:@/tmp/.ICE-unix/1402,unix/stu-VirtualBox:/tmp/.ICE-unix/1402","GDM_LANG":"en_US","NODE":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","npm_package_name":"dog-app","XDG_SESSION_PATH":"/org/freedesktop/DisplayManager/Session0","XDG_MENU_PREFIX":"xfce-","XDG_RUNTIME_DIR":"/run/user/1000","GDK_BACKEND":"x11","DISPLAY":":0.0","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"XFCE","XDG_SESSION_DESKTOP":"xubuntu","XAUTHORITY":"/home/stu/.Xauthority","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","VSCODE_GIT_IPC_HANDLE":"/run/user/1000/vscode-git-bb3cc7d95e.sock","TERM_PROGRAM":"vscode","npm_lifecycle_script":"webpack","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","XDG_GREETER_DATA_DIR":"/var/lib/lightdm-data/stu","ORIGINAL_XDG_CURRENT_DESKTOP":"XFCE","SHELL":"/bin/bash","npm_package_version":"1.0.0","npm_lifecycle_event":"npx","QT_ACCESSIBILITY":"1","GDMSESSION":"xubuntu","LESSCLOSE":"/usr/bin/lesspipe %s %s","GPG_AGENT_INFO":"/run/user/1000/gnupg/S.gpg-agent:0:1","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"--ms-enable-electron-run-as-node","XDG_VTNR":"7","npm_config_globalconfig":"/home/stu/.nvm/versions/node/v18.12.1/etc/npmrc","npm_config_init_module":"/home/stu/.npm-init.js","PWD":"/home/stu/repos/dog-app","npm_execpath":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/bin/npx-cli.js","XDG_CONFIG_DIRS":"/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg","NVM_CD_FLAGS":"","XDG_DATA_DIRS":"/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share","npm_config_global_prefix":"/home/stu/.nvm/versions/node/v18.12.1","npm_command":"exec","VTE_VERSION":"6800","INIT_CWD":"/home/stu/repos/dog-app","EDITOR":"vi","API_KEY":"live_wMtePYATvRDPMV45HmQ4uScPw5A7KlmBFqZl5Pck9PXE6SUsEePFRUMGsJz7BXUC"}.API_KEY;
+const apiKey = {"LESSOPEN":"| /usr/bin/lesspipe %s","LANGUAGE":"en_US","USER":"stu","npm_config_user_agent":"npm/9.6.5 node/v18.12.1 linux x64 workspaces/false","XDG_SEAT":"seat0","XDG_SESSION_TYPE":"x11","GIT_ASKPASS":"/usr/share/code/resources/app/extensions/git/dist/askpass.sh","npm_node_execpath":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","SHLVL":"2","npm_config_noproxy":"","HOME":"/home/stu","CHROME_DESKTOP":"code-url-handler.desktop","OLDPWD":"/home/stu","TERM_PROGRAM_VERSION":"1.86.0","DESKTOP_SESSION":"xubuntu","NVM_BIN":"/home/stu/.nvm/versions/node/v18.12.1/bin","npm_package_json":"/home/stu/repos/dog-app/package.json","NVM_INC":"/home/stu/.nvm/versions/node/v18.12.1/include/node","XDG_SEAT_PATH":"/org/freedesktop/DisplayManager/Seat0","VSCODE_GIT_ASKPASS_MAIN":"/usr/share/code/resources/app/extensions/git/dist/askpass-main.js","VSCODE_GIT_ASKPASS_NODE":"/usr/share/code/code","npm_config_userconfig":"/home/stu/.npmrc","npm_config_local_prefix":"/home/stu/repos/dog-app","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","COLORTERM":"truecolor","COLOR":"1","NVM_DIR":"/home/stu/.nvm","npm_config_metrics_registry":"https://registry.npmjs.org/","QT_QPA_PLATFORMTHEME":"gtk2","LOGNAME":"stu","WINDOWID":"75497475","_":"/home/stu/.nvm/versions/node/v18.12.1/bin/npx","npm_config_prefix":"/home/stu/.nvm/versions/node/v18.12.1","XDG_SESSION_CLASS":"user","CLUTTER_BACKEND":"x11","TERM":"xterm-256color","GTK_OVERLAY_SCROLLING":"0","XDG_SESSION_ID":"c1","npm_config_cache":"/home/stu/.npm","npm_config_node_gyp":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js","PATH":"/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/dog-app/node_modules/.bin:/home/stu/repos/node_modules/.bin:/home/stu/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/home/stu/.nvm/versions/node/v18.12.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","SESSION_MANAGER":"local/stu-VirtualBox:@/tmp/.ICE-unix/1401,unix/stu-VirtualBox:/tmp/.ICE-unix/1401","GDM_LANG":"en_US","NODE":"/home/stu/.nvm/versions/node/v18.12.1/bin/node","npm_package_name":"dog-app","XDG_SESSION_PATH":"/org/freedesktop/DisplayManager/Session0","XDG_MENU_PREFIX":"xfce-","XDG_RUNTIME_DIR":"/run/user/1000","GDK_BACKEND":"x11","DISPLAY":":0.0","LANG":"en_US.UTF-8","XDG_CURRENT_DESKTOP":"XFCE","XDG_SESSION_DESKTOP":"xubuntu","XAUTHORITY":"/home/stu/.Xauthority","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","VSCODE_GIT_IPC_HANDLE":"/run/user/1000/vscode-git-959820b1c6.sock","TERM_PROGRAM":"vscode","npm_lifecycle_script":"webpack","SSH_AUTH_SOCK":"/run/user/1000/keyring/ssh","XDG_GREETER_DATA_DIR":"/var/lib/lightdm-data/stu","ORIGINAL_XDG_CURRENT_DESKTOP":"XFCE","SHELL":"/bin/bash","npm_package_version":"1.0.0","npm_lifecycle_event":"npx","QT_ACCESSIBILITY":"1","GDMSESSION":"xubuntu","LESSCLOSE":"/usr/bin/lesspipe %s %s","GPG_AGENT_INFO":"/run/user/1000/gnupg/S.gpg-agent:0:1","VSCODE_GIT_ASKPASS_EXTRA_ARGS":"","XDG_VTNR":"7","npm_config_globalconfig":"/home/stu/.nvm/versions/node/v18.12.1/etc/npmrc","npm_config_init_module":"/home/stu/.npm-init.js","PWD":"/home/stu/repos/dog-app","npm_execpath":"/home/stu/.nvm/versions/node/v18.12.1/lib/node_modules/npm/bin/npx-cli.js","XDG_CONFIG_DIRS":"/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg","NVM_CD_FLAGS":"","XDG_DATA_DIRS":"/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share","npm_config_global_prefix":"/home/stu/.nvm/versions/node/v18.12.1","npm_command":"exec","VTE_VERSION":"6800","INIT_CWD":"/home/stu/repos/dog-app","EDITOR":"vi","API_KEY":"live_wMtePYATvRDPMV45HmQ4uScPw5A7KlmBFqZl5Pck9PXE6SUsEePFRUMGsJz7BXUC"}.API_KEY;
 
 //? **`` Receives the value from the search input and fetches the dog breed data
 async function searchForBreed(searchValue) {
@@ -1524,6 +1552,7 @@ __webpack_require__.r(__webpack_exports__);
 //todo **`` Add favicon
 //todo **`` Get rid of helper console messages
 //todo **`` If no breeds are found, make that message appear
+//todo **`` Do all todo's in CSS file
 
 })();
 
