@@ -46,7 +46,9 @@ function buildBreedArray(returnedBreeds) {
     breedArray[index] = {};
     breedArray[index].id = breed.id;
     breedArray[index].name = breed.name;
-    breedArray[index].image = breed.image.url;
+    if (breed.image) {
+      breedArray[index].image = breed.image.url;
+    }
   });
   return breedArray;
 }
