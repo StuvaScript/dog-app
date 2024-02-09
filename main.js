@@ -425,16 +425,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   /* height: 100vh; */
   font-family: Arial, Helvetica, sans-serif;
 
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
-
   display: grid;
   grid-template-rows: 10vh minmax(85vh, 100%) 5vh;
 }
 
 header {
-  /* height: 10vh; */
   background: goldenrod;
 
   display: flex;
@@ -450,7 +445,7 @@ main {
   grid-template-rows: auto 1fr;
 }
 
-.form-back-wrapper {
+#form-back-wrapper {
   display: grid;
   gap: 10px;
 }
@@ -533,21 +528,53 @@ form {
   .breed-wrapper {
     cursor: pointer;
 
+    display: grid;
+    justify-items: center;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+
     .breed-name {
       text-align: center;
       font-weight: bold;
-      /* todo **\`\` Fix the sizing issue when names are too long */
       font-size: 1.25rem;
+    }
+
+    .breed-image {
+      display: grid;
+      justify-items: center;
+    }
+
+    .breed-image > img {
+      width: max(250px, 75%);
     }
   }
 }
 
-.breed-image > img {
-  width: 250px;
-}
+#single-breed-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
 
-.info-image > img {
-  width: 250px;
+  #info-wrapper {
+  }
+
+  #image-wrapper {
+    padding: 10px;
+
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+
+    .info-image {
+      display: grid;
+      justify-items: center;
+    }
+
+    .info-image > img {
+      width: max(250px, 75%);
+    }
+  }
 }
 
 #back-button {
@@ -555,15 +582,12 @@ form {
   color: green;
   cursor: pointer;
   justify-self: center;
-
-  /* position: absolute; */
 }
 
 footer {
-  /* height: 5vh; */
   background: salmon;
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,yCAAyC;;EAEzC,mBAAmB;EACnB,4BAA4B;EAC5B,oCAAoC;;EAEpC,aAAa;EACb,+CAA+C;AACjD;;AAEA;EACE,kBAAkB;EAClB,qBAAqB;;EAErB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,YAAY;EACZ,0BAA0B;;EAE1B,aAAa;EACb,4BAA4B;AAC9B;;AAEA;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,oBAAoB;EACpB,2BAA2B;;EAE3B,aAAa;EACb,+BAA+B;EAC/B,mBAAmB;;EAEnB;IACE,4BAA4B;IAC5B,kBAAkB;IAClB,mBAAmB;IACnB,YAAY;IACZ,mBAAmB;IACnB,eAAe;IACf,2CAA2C;EAC7C;;EAEA;IACE,6CAA6C;IAC7C,mBAAmB;EACrB;;EAEA;IACE,kBAAkB;IAClB,WAAW;IACX,mBAAmB;IACnB,eAAe;IACf,aAAa;IACb,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,WAAW;IACX,YAAY;IACZ,iBAAiB;;IAEjB,aAAa;IACb,uBAAuB;IACvB,mBAAmB;;IAEnB;MACE,YAAY;MACZ,WAAW;IACb;EACF;;EAEA;IACE,6BAA6B;EAC/B;AACF;;AAEA;EACE,kBAAkB;EAClB,oBAAoB;EACpB,2CAA2C;EAC3C,yBAAyB;;EAEzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,SAAS;;EAET;IACE,kBAAkB;EACpB;AACF;;AAEA;EACE,aAAa;;EAEb,aAAa;EACb,qBAAqB;EACrB,2DAA2D;EAC3D,SAAS;;EAET;IACE,eAAe;;IAEf;MACE,kBAAkB;MAClB,iBAAiB;MACjB,2DAA2D;MAC3D,kBAAkB;IACpB;EACF;AACF;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;EACf,oBAAoB;;EAEpB,wBAAwB;AAC1B;;AAEA;EACE,iBAAiB;EACjB,kBAAkB;AACpB","sourcesContent":["body {\n  /* height: 100vh; */\n  font-family: Arial, Helvetica, sans-serif;\n\n  /* display: flex; */\n  /* flex-direction: column; */\n  /* justify-content: space-between; */\n\n  display: grid;\n  grid-template-rows: 10vh minmax(85vh, 100%) 5vh;\n}\n\nheader {\n  /* height: 10vh; */\n  background: goldenrod;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\nmain {\n  height: 100%;\n  background: lightslategrey;\n\n  display: grid;\n  grid-template-rows: auto 1fr;\n}\n\n.form-back-wrapper {\n  display: grid;\n  gap: 10px;\n}\n\nform {\n  justify-self: center;\n  /* background: palegreen; */\n\n  display: grid;\n  grid-template-columns: 1fr auto;\n  align-items: center;\n\n  #search-input {\n    padding: 10px 60px 10px 30px;\n    font-size: 1.25rem;\n    border-radius: 50px;\n    border: none;\n    grid-column: 1 / -1;\n    grid-row: 1 / 2;\n    width: clamp(min(90vw, 350px), 60vw, 400px);\n  }\n\n  #search-input:focus {\n    /*todo **`` Change the color of the outline */\n    /* outline: none; */\n  }\n\n  #submit-button {\n    position: relative;\n    right: -2px;\n    grid-column: 2 / -1;\n    grid-row: 1 / 2;\n    padding: 10px;\n    background: #1ce;\n    border-radius: 50%;\n    border: none;\n    width: 35px;\n    height: 35px;\n    margin-right: 5px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    img {\n      height: 25px;\n      width: 25px;\n    }\n  }\n\n  #submit-button:hover {\n    background: rgb(11, 149, 173);\n  }\n}\n\n#welcome-wrapper {\n  align-self: center;\n  justify-self: center;\n  width: clamp(min(90vw, 350px), 60vw, 900px);\n  background: paleturquoise;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 20px;\n\n  h1 {\n    text-align: center;\n  }\n}\n\n#list-wrapper {\n  padding: 10px;\n\n  display: grid;\n  justify-items: center;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 10px;\n\n  .breed-wrapper {\n    cursor: pointer;\n\n    .breed-name {\n      text-align: center;\n      font-weight: bold;\n      /* todo **`` Fix the sizing issue when names are too long */\n      font-size: 1.25rem;\n    }\n  }\n}\n\n.breed-image > img {\n  width: 250px;\n}\n\n.info-image > img {\n  width: 250px;\n}\n\n#back-button {\n  font-size: 2rem;\n  color: green;\n  cursor: pointer;\n  justify-self: center;\n\n  /* position: absolute; */\n}\n\nfooter {\n  /* height: 5vh; */\n  background: salmon;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,yCAAyC;;EAEzC,aAAa;EACb,+CAA+C;AACjD;;AAEA;EACE,qBAAqB;;EAErB,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,YAAY;EACZ,0BAA0B;;EAE1B,aAAa;EACb,4BAA4B;AAC9B;;AAEA;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,oBAAoB;EACpB,2BAA2B;;EAE3B,aAAa;EACb,+BAA+B;EAC/B,mBAAmB;;EAEnB;IACE,4BAA4B;IAC5B,kBAAkB;IAClB,mBAAmB;IACnB,YAAY;IACZ,mBAAmB;IACnB,eAAe;IACf,2CAA2C;EAC7C;;EAEA;IACE,6CAA6C;IAC7C,mBAAmB;EACrB;;EAEA;IACE,kBAAkB;IAClB,WAAW;IACX,mBAAmB;IACnB,eAAe;IACf,aAAa;IACb,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,WAAW;IACX,YAAY;IACZ,iBAAiB;;IAEjB,aAAa;IACb,uBAAuB;IACvB,mBAAmB;;IAEnB;MACE,YAAY;MACZ,WAAW;IACb;EACF;;EAEA;IACE,6BAA6B;EAC/B;AACF;;AAEA;EACE,kBAAkB;EAClB,oBAAoB;EACpB,2CAA2C;EAC3C,yBAAyB;;EAEzB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,SAAS;;EAET;IACE,kBAAkB;EACpB;AACF;;AAEA;EACE,aAAa;;EAEb,aAAa;EACb,qBAAqB;EACrB,2DAA2D;EAC3D,SAAS;;EAET;IACE,eAAe;;IAEf,aAAa;IACb,qBAAqB;IACrB,4BAA4B;IAC5B,SAAS;;IAET;MACE,kBAAkB;MAClB,iBAAiB;MACjB,kBAAkB;IACpB;;IAEA;MACE,aAAa;MACb,qBAAqB;IACvB;;IAEA;MACE,sBAAsB;IACxB;EACF;AACF;;AAEA;EACE,aAAa;EACb,4BAA4B;EAC5B,SAAS;;EAET;EACA;;EAEA;IACE,aAAa;;IAEb,aAAa;IACb,qBAAqB;IACrB,2DAA2D;IAC3D,SAAS;;IAET;MACE,aAAa;MACb,qBAAqB;IACvB;;IAEA;MACE,sBAAsB;IACxB;EACF;AACF;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;EACf,oBAAoB;AACtB;;AAEA;EACE,kBAAkB;AACpB","sourcesContent":["body {\n  /* height: 100vh; */\n  font-family: Arial, Helvetica, sans-serif;\n\n  display: grid;\n  grid-template-rows: 10vh minmax(85vh, 100%) 5vh;\n}\n\nheader {\n  background: goldenrod;\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\nmain {\n  height: 100%;\n  background: lightslategrey;\n\n  display: grid;\n  grid-template-rows: auto 1fr;\n}\n\n#form-back-wrapper {\n  display: grid;\n  gap: 10px;\n}\n\nform {\n  justify-self: center;\n  /* background: palegreen; */\n\n  display: grid;\n  grid-template-columns: 1fr auto;\n  align-items: center;\n\n  #search-input {\n    padding: 10px 60px 10px 30px;\n    font-size: 1.25rem;\n    border-radius: 50px;\n    border: none;\n    grid-column: 1 / -1;\n    grid-row: 1 / 2;\n    width: clamp(min(90vw, 350px), 60vw, 400px);\n  }\n\n  #search-input:focus {\n    /*todo **`` Change the color of the outline */\n    /* outline: none; */\n  }\n\n  #submit-button {\n    position: relative;\n    right: -2px;\n    grid-column: 2 / -1;\n    grid-row: 1 / 2;\n    padding: 10px;\n    background: #1ce;\n    border-radius: 50%;\n    border: none;\n    width: 35px;\n    height: 35px;\n    margin-right: 5px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    img {\n      height: 25px;\n      width: 25px;\n    }\n  }\n\n  #submit-button:hover {\n    background: rgb(11, 149, 173);\n  }\n}\n\n#welcome-wrapper {\n  align-self: center;\n  justify-self: center;\n  width: clamp(min(90vw, 350px), 60vw, 900px);\n  background: paleturquoise;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 20px;\n\n  h1 {\n    text-align: center;\n  }\n}\n\n#list-wrapper {\n  padding: 10px;\n\n  display: grid;\n  justify-items: center;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 10px;\n\n  .breed-wrapper {\n    cursor: pointer;\n\n    display: grid;\n    justify-items: center;\n    grid-template-rows: auto 1fr;\n    gap: 10px;\n\n    .breed-name {\n      text-align: center;\n      font-weight: bold;\n      font-size: 1.25rem;\n    }\n\n    .breed-image {\n      display: grid;\n      justify-items: center;\n    }\n\n    .breed-image > img {\n      width: max(250px, 75%);\n    }\n  }\n}\n\n#single-breed-wrapper {\n  display: grid;\n  grid-template-rows: auto 1fr;\n  gap: 10px;\n\n  #info-wrapper {\n  }\n\n  #image-wrapper {\n    padding: 10px;\n\n    display: grid;\n    justify-items: center;\n    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n    gap: 10px;\n\n    .info-image {\n      display: grid;\n      justify-items: center;\n    }\n\n    .info-image > img {\n      width: max(250px, 75%);\n    }\n  }\n}\n\n#back-button {\n  font-size: 2rem;\n  color: green;\n  cursor: pointer;\n  justify-self: center;\n}\n\nfooter {\n  background: salmon;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1143,14 +1167,14 @@ function breedImage(breed, breedWrapper) {
 
 //? **`` Takes the data and displays it according to the user's breed selection
 function displayInfo(returnedInfo) {
-  const breedWrapper = document.createElement('div');
-  breedWrapper.setAttribute('id', 'breed-wrapper');
-  main.append(breedWrapper);
+  const singleBreedWrapper = document.createElement('div');
+  singleBreedWrapper.setAttribute('id', 'single-breed-wrapper');
+  main.append(singleBreedWrapper);
 
   //? **`` Creates the info wrapper area
   const infoWrapper = document.createElement('div');
   infoWrapper.setAttribute('id', 'info-wrapper');
-  breedWrapper.append(infoWrapper);
+  singleBreedWrapper.append(infoWrapper);
 
   //? **`` This area contains conditionals. If any info is empty or undefined, it doesn't get displayed
   const bredFor = document.createElement('div');
@@ -1207,8 +1231,8 @@ function displayInfo(returnedInfo) {
 
   //? **`` Creates the image wrapper area
   const imageWrapper = document.createElement('div');
-  imageWrapper.classList.add('image-wrapper');
-  breedWrapper.append(imageWrapper);
+  imageWrapper.setAttribute('id', 'image-wrapper');
+  singleBreedWrapper.append(imageWrapper);
 
   returnedInfo.forEach((item) => {
     console.log(item.url);
@@ -1244,7 +1268,7 @@ function introPage() {
 
 //? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.
 function displayBackButton(location) {
-  const formBackWrapper = document.querySelector('.form-back-wrapper');
+  const formBackWrapper = document.querySelector('#form-back-wrapper');
 
   const goBack = document.createElement('div');
   goBack.setAttribute('id', 'back-button');
