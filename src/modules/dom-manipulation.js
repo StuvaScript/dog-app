@@ -14,6 +14,9 @@ const main = document.querySelector('main');
 //? **`` Removes all the children under the 'main' element except the first element (the 'form')
 function removeDogs() {
   main.replaceChildren(main.firstElementChild);
+  if (document.querySelector('#back-button')) {
+    document.querySelector('#back-button').remove();
+  }
 }
 
 //* **`` The main breed selector page
@@ -162,11 +165,13 @@ function introPage() {
 
 //? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.
 function displayBackButton(location) {
+  const formBackWrapper = document.querySelector('.form-back-wrapper');
+
   const goBack = document.createElement('div');
   goBack.setAttribute('id', 'back-button');
   goBack.setAttribute('data-location', `${location}`);
   goBack.innerText = 'Go back';
-  main.append(goBack);
+  formBackWrapper.append(goBack);
 }
 
 //? **`` Displays the search icon
