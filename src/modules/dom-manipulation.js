@@ -68,14 +68,14 @@ function breedImage(breed, breedWrapper) {
 
 //? **`` Takes the data and displays it according to the user's breed selection
 function displayInfo(returnedInfo) {
-  const breedWrapper = document.createElement('div');
-  breedWrapper.setAttribute('id', 'breed-wrapper');
-  main.append(breedWrapper);
+  const singleBreedWrapper = document.createElement('div');
+  singleBreedWrapper.setAttribute('id', 'single-breed-wrapper');
+  main.append(singleBreedWrapper);
 
   //? **`` Creates the info wrapper area
   const infoWrapper = document.createElement('div');
   infoWrapper.setAttribute('id', 'info-wrapper');
-  breedWrapper.append(infoWrapper);
+  singleBreedWrapper.append(infoWrapper);
 
   //? **`` This area contains conditionals. If any info is empty or undefined, it doesn't get displayed
   const bredFor = document.createElement('div');
@@ -132,8 +132,8 @@ function displayInfo(returnedInfo) {
 
   //? **`` Creates the image wrapper area
   const imageWrapper = document.createElement('div');
-  imageWrapper.classList.add('image-wrapper');
-  breedWrapper.append(imageWrapper);
+  imageWrapper.setAttribute('id', 'image-wrapper');
+  singleBreedWrapper.append(imageWrapper);
 
   returnedInfo.forEach((item) => {
     console.log(item.url);
@@ -169,7 +169,7 @@ function introPage() {
 
 //? **`` Creates a back button, sets a data attribute with the location where the 'back button' is currently at.
 function displayBackButton(location) {
-  const formBackWrapper = document.querySelector('.form-back-wrapper');
+  const formBackWrapper = document.querySelector('#form-back-wrapper');
 
   const goBack = document.createElement('div');
   goBack.setAttribute('id', 'back-button');

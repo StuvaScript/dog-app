@@ -2,16 +2,11 @@ body {
   /* height: 100vh; */
   font-family: Arial, Helvetica, sans-serif;
 
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
-
   display: grid;
   grid-template-rows: 10vh minmax(85vh, 100%) 5vh;
 }
 
 header {
-  /* height: 10vh; */
   background: goldenrod;
 
   display: flex;
@@ -27,7 +22,7 @@ main {
   grid-template-rows: auto 1fr;
 }
 
-.form-back-wrapper {
+#form-back-wrapper {
   display: grid;
   gap: 10px;
 }
@@ -110,21 +105,53 @@ form {
   .breed-wrapper {
     cursor: pointer;
 
+    display: grid;
+    justify-items: center;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+
     .breed-name {
       text-align: center;
       font-weight: bold;
-      /* todo **`` Fix the sizing issue when names are too long */
       font-size: 1.25rem;
+    }
+
+    .breed-image {
+      display: grid;
+      justify-items: center;
+    }
+
+    .breed-image > img {
+      width: max(250px, 75%);
     }
   }
 }
 
-.breed-image > img {
-  width: 250px;
-}
+#single-breed-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
 
-.info-image > img {
-  width: 250px;
+  #info-wrapper {
+  }
+
+  #image-wrapper {
+    padding: 10px;
+
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+
+    .info-image {
+      display: grid;
+      justify-items: center;
+    }
+
+    .info-image > img {
+      width: max(250px, 75%);
+    }
+  }
 }
 
 #back-button {
@@ -132,11 +159,8 @@ form {
   color: green;
   cursor: pointer;
   justify-self: center;
-
-  /* position: absolute; */
 }
 
 footer {
-  /* height: 5vh; */
   background: salmon;
 }
