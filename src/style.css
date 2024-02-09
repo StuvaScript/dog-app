@@ -29,6 +29,7 @@ main {
 
 .form-back-wrapper {
   display: grid;
+  gap: 10px;
 }
 
 form {

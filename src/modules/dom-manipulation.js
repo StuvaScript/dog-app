@@ -68,10 +68,14 @@ function breedImage(breed, breedWrapper) {
 
 //? **`` Takes the data and displays it according to the user's breed selection
 function displayInfo(returnedInfo) {
+  const breedWrapper = document.createElement('div');
+  breedWrapper.setAttribute('id', 'breed-wrapper');
+  main.append(breedWrapper);
+
   //? **`` Creates the info wrapper area
   const infoWrapper = document.createElement('div');
   infoWrapper.setAttribute('id', 'info-wrapper');
-  main.append(infoWrapper);
+  breedWrapper.append(infoWrapper);
 
   //? **`` This area contains conditionals. If any info is empty or undefined, it doesn't get displayed
   const bredFor = document.createElement('div');
@@ -129,7 +133,7 @@ function displayInfo(returnedInfo) {
   //? **`` Creates the image wrapper area
   const imageWrapper = document.createElement('div');
   imageWrapper.classList.add('image-wrapper');
-  main.append(imageWrapper);
+  breedWrapper.append(imageWrapper);
 
   returnedInfo.forEach((item) => {
     console.log(item.url);
