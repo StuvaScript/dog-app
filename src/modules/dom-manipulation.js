@@ -114,19 +114,26 @@ function displayInfo(returnedInfo) {
     lifeSpan.innerText = `Life span: ${returnedInfo[0].breeds[0].life_span}`;
   }
 
-  const name = document.createElement('div');
+  const name = document.createElement('h1');
   name.innerText = `${returnedInfo[0].breeds[0].name}`;
 
   const temperament = document.createElement('div');
-  temperament.innerText = `Temperament: ${returnedInfo[0].breeds[0].temperament}`;
+  if (
+    !(
+      returnedInfo[0].breeds[0].temperament === '' ||
+      returnedInfo[0].breeds[0].temperament === undefined
+    )
+  ) {
+    temperament.innerText = `Temperament: ${returnedInfo[0].breeds[0].temperament}`;
+  }
 
   infoWrapper.append(
-    bredFor,
+    name,
     breedGroup,
+    bredFor,
     height,
     weight,
     lifeSpan,
-    name,
     temperament,
   );
 

@@ -1,13 +1,22 @@
+:root {
+  --dark-blue: #264653;
+  --blue-green: #2a9d8f;
+  --yellow: #e9c46a;
+  --orange: #f4a261;
+  --red: #e76f51;
+}
+
 body {
   /* height: 100vh; */
   font-family: Arial, Helvetica, sans-serif;
+  /* color: white; */
 
   display: grid;
-  grid-template-rows: 10vh minmax(85vh, 100%) 5vh;
+  grid-template-rows: 10vh minmax(80vh, 100%) 10vh;
 }
 
 header {
-  background: goldenrod;
+  background: var(--blue-green);
 
   display: flex;
   justify-content: center;
@@ -16,7 +25,7 @@ header {
 
 main {
   height: 100%;
-  background: lightslategrey;
+  background: var(--blue-green);
 
   display: grid;
   grid-template-rows: auto 1fr;
@@ -48,6 +57,7 @@ form {
   #search-input:focus {
     /*todo **`` Change the color of the outline */
     /* outline: none; */
+    outline-color: var(--orange);
   }
 
   #submit-button {
@@ -56,7 +66,7 @@ form {
     grid-column: 2 / -1;
     grid-row: 1 / 2;
     padding: 10px;
-    background: #1ce;
+    background: var(--orange);
     border-radius: 50%;
     border: none;
     width: 35px;
@@ -74,7 +84,7 @@ form {
   }
 
   #submit-button:hover {
-    background: rgb(11, 149, 173);
+    background: var(--red);
   }
 }
 
@@ -82,7 +92,12 @@ form {
   align-self: center;
   justify-self: center;
   width: clamp(min(90vw, 350px), 60vw, 900px);
-  background: paleturquoise;
+  background: var(--orange);
+  padding: 20px;
+  box-shadow:
+    2px 2px 10px #3339,
+    10px 10px 20px #3337;
+  border-radius: 50px;
 
   display: flex;
   flex-direction: column;
@@ -122,6 +137,8 @@ form {
     }
 
     .breed-image > img {
+      border: 10px solid #1ce;
+      border-radius: 10px;
       width: max(250px, 75%);
     }
   }
@@ -133,6 +150,14 @@ form {
   gap: 10px;
 
   #info-wrapper {
+    padding-bottom: 20px;
+    display: grid;
+    justify-items: center;
+    gap: 5px;
+
+    > * {
+      text-align: center;
+    }
   }
 
   #image-wrapper {
@@ -149,6 +174,8 @@ form {
     }
 
     .info-image > img {
+      border: 10px solid #1ce;
+      border-radius: 10px;
       width: max(250px, 75%);
     }
   }
@@ -162,5 +189,5 @@ form {
 }
 
 footer {
-  background: salmon;
+  background: var(--red);
 }
