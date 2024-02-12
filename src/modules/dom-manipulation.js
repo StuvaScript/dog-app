@@ -5,9 +5,12 @@ export {
   introPage,
   displayBackButton,
   displaySearchIcon,
+  displayLogo,
+  displayFavicon,
 };
 
 import searchIcon from '../images/search.png';
+import logo from '../images/dog-logo.png';
 
 const main = document.querySelector('main');
 
@@ -188,4 +191,14 @@ function displayBackButton(location) {
 //? **`` Displays the search icon
 function displaySearchIcon() {
   document.querySelector('#submit-button img').setAttribute('src', searchIcon);
+}
+
+//? **`` Displays the logo
+function displayLogo() {
+  document.querySelector('header img').setAttribute('src', logo);
+}
+
+//? **`` Displays the favicon
+function displayFavicon() {
+  document.querySelector('link[rel="icon"]').setAttribute('href', logo);
 }

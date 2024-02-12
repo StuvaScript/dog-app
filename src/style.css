@@ -22,6 +22,11 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  #logo {
+    cursor: pointer;
+    width: clamp(50px, 17vw, 70px);
+  }
 }
 
 main {
@@ -56,8 +61,6 @@ form {
   }
 
   #search-input:focus {
-    /*todo **`` Change the color of the outline */
-    /* outline: none; */
     outline-color: var(--orange);
   }
 
