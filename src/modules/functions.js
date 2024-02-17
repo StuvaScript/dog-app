@@ -1,3 +1,5 @@
+import { toggleBreedNotFoundMessage } from './dom-manipulation';
+
 export { searchForBreed, fetchBreedImagesAndInfo, buildBreedArray };
 
 const apiKey = process.env.API_KEY;
@@ -13,7 +15,7 @@ async function searchForBreed(searchValue) {
     );
     const data = await response.json();
     if (data.length === 0) {
-      console.warn('No breeds found. Pop message on screen.');
+      toggleBreedNotFoundMessage();
     }
     console.log(data);
     return data;

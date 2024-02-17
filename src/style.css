@@ -1,16 +1,15 @@
 :root {
   --dark-blue: #264653;
-  /* --blue-green: #2a9d8f; */
   --blue-green: #2fac9e;
   --yellow: #e9c46a;
   --orange: #f4a261;
   --red: #f57656;
+
+  --main-font: Arial, Helvetica, sans-serif;
 }
 
 body {
-  /* height: 100vh; */
-  font-family: Arial, Helvetica, sans-serif;
-  /* color: white; */
+  font-family: var(--main-font);
 
   display: grid;
   grid-template-rows: 10vh minmax(80vh, 100%) 10vh;
@@ -44,13 +43,12 @@ main {
 
 form {
   justify-self: center;
-  /* background: palegreen; */
 
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
 
-  #search-input {
+  input {
     padding: 10px 60px 10px 30px;
     font-size: 1.25rem;
     border-radius: 50px;
@@ -60,7 +58,17 @@ form {
     width: clamp(min(90vw, 350px), 60vw, 400px);
   }
 
-  #search-input:focus {
+  /** This is the class toggled by JS when a breed isn't found */
+  .warn {
+    border: 2px solid #a80000;
+  }
+
+  .warn::placeholder {
+    color: #a80000;
+  }
+  /* ******************************************************* */
+
+  input:focus {
     outline-color: var(--orange);
   }
 
@@ -123,11 +131,12 @@ form {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: auto 1fr;
+  grid-auto-rows: auto minmax(1fr, auto);
   gap: 10px;
 
   .breed-wrapper {
     cursor: pointer;
+    margin: 20px 0px;
     /* **`` This 'grid-row: span 2' is important for the subgrid to work */
     grid-row: span 2;
 
@@ -148,7 +157,6 @@ form {
     }
 
     .breed-image > img {
-      /* border: 10px solid var(--yellow); */
       box-shadow:
         2px 2px 10px #3339,
         10px 10px 20px #3337;
@@ -164,8 +172,6 @@ form {
   gap: 10px;
 
   #info-wrapper {
-    /* padding-bottom: 20px; */
-
     display: grid;
     justify-items: center;
     gap: 5px;
@@ -188,12 +194,13 @@ form {
     gap: 10px;
 
     .info-image {
+      margin: 20px 0px;
+
       display: grid;
       justify-items: center;
     }
 
     .info-image > img {
-      /* border: 10px solid var(--yellow); */
       box-shadow:
         2px 2px 10px #3339,
         10px 10px 20px #3337;
@@ -226,4 +233,11 @@ footer {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+
+footer a:link,
+footer a:visited,
+footer a:hover,
+footer a:active {
+  color: initial;
 }

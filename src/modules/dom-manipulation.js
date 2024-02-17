@@ -7,6 +7,7 @@ export {
   displaySearchIcon,
   displayLogo,
   displayFavicon,
+  toggleBreedNotFoundMessage,
 };
 
 import searchIcon from '../images/search.png';
@@ -201,4 +202,17 @@ function displayLogo() {
 //? **`` Displays the favicon
 function displayFavicon() {
   document.querySelector('link[rel="icon"]').setAttribute('href', logo);
+}
+
+//? **`` When no breed is found after a search, this changes the input field placeholder text, colors the input border, adds a click event listener to the input field to return everything back to normal when the user tries to search again.
+function toggleBreedNotFoundMessage() {
+  const searchInput = document.querySelector('#search-input');
+
+  searchInput.placeholder = 'No breeds found!';
+  searchInput.classList.add('warn');
+
+  searchInput.addEventListener('click', () => {
+    searchInput.placeholder = 'Search breeds...';
+    searchInput.classList.remove('warn');
+  });
 }

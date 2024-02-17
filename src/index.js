@@ -18,5 +18,4 @@ displayFavicon();
 //! **`` npx webpack --watch FOOOOOOOL
 //todo **`` Add a loading screen
 //todo **`` Get rid of helper console messages
-//todo **`` If no breeds are found, make that message appear
-//todo **`` Maybe change headers to have cursive font
+//todo **`` The '.list-wrapper' subgrid and grid row behavior is acting funny. When you search 'poodle' or 'belgian' and only two dogs show up, the names are far from the pictures. Mess with the 'auto row'
