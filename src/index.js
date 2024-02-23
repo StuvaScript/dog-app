@@ -1,5 +1,6 @@
 import {
   displayFavicon,
+  displayLoadingImage,
   displayLogo,
   displaySearchIcon,
   introPage,
@@ -8,12 +9,15 @@ import { clickLogoLogic, searchBreedsLogic } from './modules/event-handlers';
 import './normalize.css';
 import './style.css';
 
-searchBreedsLogic();
 introPage();
+
+searchBreedsLogic();
 clickLogoLogic();
+
 displaySearchIcon();
 displayLogo();
 displayFavicon();
+displayLoadingImage();
 
 //! **`` npx webpack --watch FOOOOOOOL
 //todo **`` Add a loading screen

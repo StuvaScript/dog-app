@@ -4,6 +4,7 @@ import {
   displayInfo,
   introPage,
   removeDogs,
+  toggleBreedNotFoundMessage,
 } from './dom-manipulation';
 import {
   buildBreedArray,
@@ -23,12 +24,16 @@ function searchBreedsLogic() {
     if (inputField.value === '') {
       return;
     }
+    removeDogs();
+    //* **`` Display loading screen here ``**
     const returnedBreeds = await searchForBreed(inputField.value);
     inputField.value = '';
+    //* **`` Remove loading screen here ``**
     if (returnedBreeds.length === 0) {
+      toggleBreedNotFoundMessage();
+      introPage();
       return;
     }
-    removeDogs();
     displayBackButton('breed-select');
     const newBreedArray = buildBreedArray(returnedBreeds);
     displayBreeds(newBreedArray);
@@ -45,7 +50,9 @@ function navigateToBreedInfoPageLogic(newBreedArray) {
       console.log(this.attributes['data-breed-id'].value);
       const breedID = this.attributes['data-breed-id'].value;
       removeDogs();
+      //* **`` Display loading screen here ``**
       const returnedInfo = await fetchBreedImagesAndInfo(breedID);
+      //* **`` Remove loading screen here ``**
       displayBackButton('breed-info');
       displayInfo(returnedInfo);
       clickBackButtonLogic(newBreedArray);

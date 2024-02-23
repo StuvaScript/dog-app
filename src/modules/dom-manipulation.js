@@ -8,14 +8,16 @@ export {
   displayLogo,
   displayFavicon,
   toggleBreedNotFoundMessage,
+  displayLoadingImage,
 };
 
 import searchIcon from '../images/search.png';
 import logo from '../images/dog-logo.png';
+import loadingImage from '../images/dog-running.gif';
 
 const main = document.querySelector('main');
 
-//? **`` Removes all the children under the 'main' element except the first element (the 'form')
+//? **`` Removes all the children under the 'main' element except the first element (the 'search form')
 function removeDogs() {
   main.replaceChildren(main.firstElementChild);
   if (document.querySelector('#back-button')) {
@@ -215,4 +217,18 @@ function toggleBreedNotFoundMessage() {
     searchInput.placeholder = 'Search breeds...';
     searchInput.classList.remove('warn');
   });
+}
+
+//? **`` This creates the loading screen image and the div that wraps it.
+function displayLoadingImage() {
+  const div = document.createElement('div');
+  div.setAttribute('id', 'loading-wrapper');
+
+  const img = document.createElement('img');
+  img.setAttribute('id', 'loading-image');
+  img.setAttribute('src', loadingImage);
+  img.setAttribute('alt', 'Loading screen image');
+  div.append(img);
+
+  document.querySelector('body').prepend(div);
 }
