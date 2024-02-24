@@ -64,7 +64,7 @@ form {
     width: clamp(min(90vw, 350px), 60vw, 400px);
   }
 
-  /** This is the class toggled by JS when a breed isn't found */
+  /*! **`` This is the class toggled by JS when a breed isn't found */
   .warn {
     border: 2px solid #a80000;
   }
@@ -72,7 +72,7 @@ form {
   .warn::placeholder {
     color: #a80000;
   }
-  /* ******************************************************* */
+  /*! ******************************************************* */
 
   input:focus {
     outline-color: var(--orange);
@@ -147,7 +147,7 @@ form {
   .breed-wrapper {
     cursor: pointer;
     margin: 20px 0px;
-    /* **`` This 'grid-row: span 2' is important for the subgrid to work */
+    /*! **`` This 'grid-row: span 2' is important for the subgrid to work */
     grid-row: span 2;
 
     display: grid;
@@ -244,7 +244,7 @@ form {
 footer {
   background: var(--red);
   text-align: center;
-  font-size: clamp(1rem, 5vw, 1.25rem);
+  font-size: clamp(0.5rem, 5vw, 1.25rem);
 
   display: flex;
   flex-direction: column;
@@ -272,6 +272,5 @@ footer a:active {
   #loading-image {
     width: 75vw;
     max-width: 400px;
-    /*todo **`` Make a transform */
   }
 }

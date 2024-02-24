@@ -1,6 +1,5 @@
 import {
   displayFavicon,
-  displayLoadingImage,
   displayLogo,
   displaySearchIcon,
   introPage,
@@ -17,9 +16,5 @@ clickLogoLogic();
 displaySearchIcon();
 displayLogo();
 displayFavicon();
-displayLoadingImage();
 
-//! **`` npx webpack --watch FOOOOOOOL
-//todo **`` Add a loading screen
-//todo **`` Get rid of helper console messages
 //todo **`` Update README.md

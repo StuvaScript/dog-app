@@ -487,7 +487,7 @@ form {
     width: clamp(min(90vw, 350px), 60vw, 400px);
   }
 
-  /** This is the class toggled by JS when a breed isn't found */
+  /*! **\`\` This is the class toggled by JS when a breed isn't found */
   .warn {
     border: 2px solid #a80000;
   }
@@ -495,7 +495,7 @@ form {
   .warn::placeholder {
     color: #a80000;
   }
-  /* ******************************************************* */
+  /*! ******************************************************* */
 
   input:focus {
     outline-color: var(--orange);
@@ -570,7 +570,7 @@ form {
   .breed-wrapper {
     cursor: pointer;
     margin: 20px 0px;
-    /* **\`\` This 'grid-row: span 2' is important for the subgrid to work */
+    /*! **\`\` This 'grid-row: span 2' is important for the subgrid to work */
     grid-row: span 2;
 
     display: grid;
@@ -667,7 +667,7 @@ form {
 footer {
   background: var(--red);
   text-align: center;
-  font-size: clamp(1rem, 5vw, 1.25rem);
+  font-size: clamp(0.5rem, 5vw, 1.25rem);
 
   display: flex;
   flex-direction: column;
@@ -695,10 +695,9 @@ footer a:active {
   #loading-image {
     width: 75vw;
     max-width: 400px;
-    /*todo **\`\` Make a transform */
   }
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":[":root {\n  --dark-blue: #264653;\n  --blue-green: #2fac9e;\n  --yellow: #e9c46a;\n  --orange: #f4a261;\n  --red: #f57656;\n\n  --main-font: Arial, Helvetica, sans-serif;\n}\n\nbody {\n  font-family: var(--main-font);\n\n  display: grid;\n  grid-template-rows: 10vh minmax(80vh, 100%) 10vh;\n}\n\n/*? **`` Header */\n/* ***************************************************** */\nheader {\n  background: var(--blue-green);\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  #logo {\n    cursor: pointer;\n    width: clamp(50px, 17vw, 70px);\n  }\n}\n\n/*? **`` Main content between header and footer */\n/* ***************************************************** */\nmain {\n  height: 100%;\n  background: var(--blue-green);\n\n  display: grid;\n  grid-template-rows: auto 1fr;\n}\n\n/*? **`` Form */\n/* ***************************************************** */\n#form-back-wrapper {\n  display: grid;\n  gap: 10px;\n}\n\nform {\n  justify-self: center;\n\n  display: grid;\n  grid-template-columns: 1fr auto;\n  align-items: center;\n\n  input {\n    padding: 10px 60px 10px 30px;\n    font-size: 1.25rem;\n    border-radius: 50px;\n    border: none;\n    grid-column: 1 / -1;\n    grid-row: 1 / 2;\n    width: clamp(min(90vw, 350px), 60vw, 400px);\n  }\n\n  /** This is the class toggled by JS when a breed isn't found */\n  .warn {\n    border: 2px solid #a80000;\n  }\n\n  .warn::placeholder {\n    color: #a80000;\n  }\n  /* ******************************************************* */\n\n  input:focus {\n    outline-color: var(--orange);\n  }\n\n  #submit-button {\n    position: relative;\n    right: -2px;\n    grid-column: 2 / -1;\n    grid-row: 1 / 2;\n    padding: 10px;\n    background: var(--orange);\n    border-radius: 50%;\n    border: none;\n    width: 35px;\n    height: 35px;\n    margin-right: 5px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    img {\n      height: 25px;\n      width: 25px;\n    }\n  }\n\n  #submit-button:hover {\n    background: var(--red);\n  }\n}\n\n/*? **`` Welcome page paragraph */\n/* ***************************************************** */\n#welcome-wrapper {\n  align-self: center;\n  justify-self: center;\n  width: clamp(min(90vw, 350px), 60vw, 900px);\n  background: var(--orange);\n  padding: 20px;\n  box-shadow:\n    2px 2px 10px #3339,\n    10px 10px 20px #3337;\n  border-radius: 50px;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 20px;\n\n  h1 {\n    text-align: center;\n  }\n\n  p {\n    font-size: clamp(1rem, 5vw, 1.25rem);\n  }\n}\n\n/*? **`` Searched breeds results */\n/* ***************************************************** */\n#list-wrapper {\n  padding: 20px 10px 20px;\n\n  display: grid;\n  justify-items: center;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: auto minmax(1fr, auto);\n  gap: 10px;\n\n  .breed-wrapper {\n    cursor: pointer;\n    margin: 20px 0px;\n    /* **`` This 'grid-row: span 2' is important for the subgrid to work */\n    grid-row: span 2;\n\n    display: grid;\n    grid-template-rows: subgrid;\n    justify-items: center;\n    gap: 10px;\n\n    .breed-name {\n      text-align: center;\n      font-weight: bold;\n      font-size: 1.25rem;\n      align-self: end;\n    }\n\n    .breed-image {\n      display: grid;\n      justify-items: center;\n    }\n\n    .breed-image > img {\n      box-shadow:\n        2px 2px 10px #3339,\n        10px 10px 20px #3337;\n      border-radius: 10px;\n      width: max(250px, 75%);\n    }\n  }\n}\n\n/*? **`` Clicked single breed */\n/* ***************************************************** */\n#single-breed-wrapper {\n  display: grid;\n  grid-template-rows: auto 1fr;\n  gap: 10px;\n\n  #info-wrapper {\n    display: grid;\n    justify-items: center;\n    gap: 5px;\n\n    > div {\n      font-size: clamp(1rem, 5vw, 1.25rem);\n    }\n\n    > * {\n      text-align: center;\n    }\n  }\n\n  #image-wrapper {\n    padding: 20px 10px 20px;\n\n    display: grid;\n    justify-items: center;\n    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n    gap: 10px;\n\n    .info-image {\n      margin: 20px 0px;\n\n      display: grid;\n      justify-items: center;\n    }\n\n    .info-image > img {\n      box-shadow:\n        2px 2px 10px #3339,\n        10px 10px 20px #3337;\n      border-radius: 10px;\n      width: max(250px, 75%);\n    }\n  }\n}\n\n/*? **`` Back button */\n/* ***************************************************** */\n#back-button {\n  box-shadow: 2px 2px 10px #3339;\n  font-size: 2rem;\n  background: var(--orange);\n  padding: 10px;\n  border-radius: 10px;\n  cursor: pointer;\n  justify-self: center;\n}\n\n#back-button:hover {\n  background: var(--red);\n}\n\n/*? **`` Footer */\n/* ***************************************************** */\nfooter {\n  background: var(--red);\n  text-align: center;\n  font-size: clamp(1rem, 5vw, 1.25rem);\n\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n  align-items: center;\n}\n\nfooter a:link,\nfooter a:visited,\nfooter a:hover,\nfooter a:active {\n  color: initial;\n}\n\n/*? **`` Loading screen */\n/* ***************************************************** */\n#loading-wrapper {\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n\n  display: grid;\n  place-items: center;\n\n  #loading-image {\n    width: 75vw;\n    max-width: 400px;\n    /*todo **`` Make a transform */\n  }\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":[":root {\n  --dark-blue: #264653;\n  --blue-green: #2fac9e;\n  --yellow: #e9c46a;\n  --orange: #f4a261;\n  --red: #f57656;\n\n  --main-font: Arial, Helvetica, sans-serif;\n}\n\nbody {\n  font-family: var(--main-font);\n\n  display: grid;\n  grid-template-rows: 10vh minmax(80vh, 100%) 10vh;\n}\n\n/*? **`` Header */\n/* ***************************************************** */\nheader {\n  background: var(--blue-green);\n\n  display: flex;\n  justify-content: center;\n  align-items: center;\n\n  #logo {\n    cursor: pointer;\n    width: clamp(50px, 17vw, 70px);\n  }\n}\n\n/*? **`` Main content between header and footer */\n/* ***************************************************** */\nmain {\n  height: 100%;\n  background: var(--blue-green);\n\n  display: grid;\n  grid-template-rows: auto 1fr;\n}\n\n/*? **`` Form */\n/* ***************************************************** */\n#form-back-wrapper {\n  display: grid;\n  gap: 10px;\n}\n\nform {\n  justify-self: center;\n\n  display: grid;\n  grid-template-columns: 1fr auto;\n  align-items: center;\n\n  input {\n    padding: 10px 60px 10px 30px;\n    font-size: 1.25rem;\n    border-radius: 50px;\n    border: none;\n    grid-column: 1 / -1;\n    grid-row: 1 / 2;\n    width: clamp(min(90vw, 350px), 60vw, 400px);\n  }\n\n  /*! **`` This is the class toggled by JS when a breed isn't found */\n  .warn {\n    border: 2px solid #a80000;\n  }\n\n  .warn::placeholder {\n    color: #a80000;\n  }\n  /*! ******************************************************* */\n\n  input:focus {\n    outline-color: var(--orange);\n  }\n\n  #submit-button {\n    position: relative;\n    right: -2px;\n    grid-column: 2 / -1;\n    grid-row: 1 / 2;\n    padding: 10px;\n    background: var(--orange);\n    border-radius: 50%;\n    border: none;\n    width: 35px;\n    height: 35px;\n    margin-right: 5px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    img {\n      height: 25px;\n      width: 25px;\n    }\n  }\n\n  #submit-button:hover {\n    background: var(--red);\n  }\n}\n\n/*? **`` Welcome page paragraph */\n/* ***************************************************** */\n#welcome-wrapper {\n  align-self: center;\n  justify-self: center;\n  width: clamp(min(90vw, 350px), 60vw, 900px);\n  background: var(--orange);\n  padding: 20px;\n  box-shadow:\n    2px 2px 10px #3339,\n    10px 10px 20px #3337;\n  border-radius: 50px;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 20px;\n\n  h1 {\n    text-align: center;\n  }\n\n  p {\n    font-size: clamp(1rem, 5vw, 1.25rem);\n  }\n}\n\n/*? **`` Searched breeds results */\n/* ***************************************************** */\n#list-wrapper {\n  padding: 20px 10px 20px;\n\n  display: grid;\n  justify-items: center;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  grid-auto-rows: auto minmax(1fr, auto);\n  gap: 10px;\n\n  .breed-wrapper {\n    cursor: pointer;\n    margin: 20px 0px;\n    /*! **`` This 'grid-row: span 2' is important for the subgrid to work */\n    grid-row: span 2;\n\n    display: grid;\n    grid-template-rows: subgrid;\n    justify-items: center;\n    gap: 10px;\n\n    .breed-name {\n      text-align: center;\n      font-weight: bold;\n      font-size: 1.25rem;\n      align-self: end;\n    }\n\n    .breed-image {\n      display: grid;\n      justify-items: center;\n    }\n\n    .breed-image > img {\n      box-shadow:\n        2px 2px 10px #3339,\n        10px 10px 20px #3337;\n      border-radius: 10px;\n      width: max(250px, 75%);\n    }\n  }\n}\n\n/*? **`` Clicked single breed */\n/* ***************************************************** */\n#single-breed-wrapper {\n  display: grid;\n  grid-template-rows: auto 1fr;\n  gap: 10px;\n\n  #info-wrapper {\n    display: grid;\n    justify-items: center;\n    gap: 5px;\n\n    > div {\n      font-size: clamp(1rem, 5vw, 1.25rem);\n    }\n\n    > * {\n      text-align: center;\n    }\n  }\n\n  #image-wrapper {\n    padding: 20px 10px 20px;\n\n    display: grid;\n    justify-items: center;\n    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n    gap: 10px;\n\n    .info-image {\n      margin: 20px 0px;\n\n      display: grid;\n      justify-items: center;\n    }\n\n    .info-image > img {\n      box-shadow:\n        2px 2px 10px #3339,\n        10px 10px 20px #3337;\n      border-radius: 10px;\n      width: max(250px, 75%);\n    }\n  }\n}\n\n/*? **`` Back button */\n/* ***************************************************** */\n#back-button {\n  box-shadow: 2px 2px 10px #3339;\n  font-size: 2rem;\n  background: var(--orange);\n  padding: 10px;\n  border-radius: 10px;\n  cursor: pointer;\n  justify-self: center;\n}\n\n#back-button:hover {\n  background: var(--red);\n}\n\n/*? **`` Footer */\n/* ***************************************************** */\nfooter {\n  background: var(--red);\n  text-align: center;\n  font-size: clamp(0.5rem, 5vw, 1.25rem);\n\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n  align-items: center;\n}\n\nfooter a:link,\nfooter a:visited,\nfooter a:hover,\nfooter a:active {\n  color: initial;\n}\n\n/*? **`` Loading screen */\n/* ***************************************************** */\n#loading-wrapper {\n  position: absolute;\n  width: 100vw;\n  height: 100vh;\n\n  display: grid;\n  place-items: center;\n\n  #loading-image {\n    width: 75vw;\n    max-width: 400px;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1216,6 +1215,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   displaySearchIcon: () => (/* binding */ displaySearchIcon),
 /* harmony export */   introPage: () => (/* binding */ introPage),
 /* harmony export */   removeDogs: () => (/* binding */ removeDogs),
+/* harmony export */   removeLoadingScreen: () => (/* binding */ removeLoadingScreen),
 /* harmony export */   toggleBreedNotFoundMessage: () => (/* binding */ toggleBreedNotFoundMessage)
 /* harmony export */ });
 /* harmony import */ var _images_search_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../images/search.png */ "./src/images/search.png");
@@ -1361,7 +1361,6 @@ function displayInfo(returnedInfo) {
   singleBreedWrapper.append(imageWrapper);
 
   returnedInfo.forEach((item) => {
-    console.log(item.url);
     const infoImage = document.createElement('div');
     infoImage.classList.add('info-image');
     const img = document.createElement('img');
@@ -1445,6 +1444,11 @@ function displayLoadingImage() {
   document.querySelector('body').prepend(div);
 }
 
+//? **`` This removes the loading screen
+function removeLoadingScreen() {
+  document.querySelector('#loading-wrapper').remove();
+}
+
 
 /***/ }),
 
@@ -1477,10 +1481,10 @@ function searchBreedsLogic() {
       return;
     }
     (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
-    //* **`` Display loading screen here ``**
+    (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayLoadingImage)();
     const returnedBreeds = await (0,_functions__WEBPACK_IMPORTED_MODULE_1__.searchForBreed)(inputField.value);
     inputField.value = '';
-    //* **`` Remove loading screen here ``**
+    (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeLoadingScreen)();
     if (returnedBreeds.length === 0) {
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.toggleBreedNotFoundMessage)();
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.introPage)();
@@ -1498,13 +1502,11 @@ function searchBreedsLogic() {
 function navigateToBreedInfoPageLogic(newBreedArray) {
   [...document.querySelectorAll('.breed-wrapper')].forEach((breed) => {
     breed.addEventListener('click', async function (e) {
-      console.log(e);
-      console.log(this.attributes['data-breed-id'].value);
       const breedID = this.attributes['data-breed-id'].value;
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeDogs)();
-      //* **`` Display loading screen here ``**
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayLoadingImage)();
       const returnedInfo = await (0,_functions__WEBPACK_IMPORTED_MODULE_1__.fetchBreedImagesAndInfo)(breedID);
-      //* **`` Remove loading screen here ``**
+      (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.removeLoadingScreen)();
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayBackButton)('breed-info');
       (0,_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayInfo)(returnedInfo);
       clickBackButtonLogic(newBreedArray);
@@ -1573,7 +1575,6 @@ async function searchForBreed(searchValue) {
       },
     );
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error(`Error: ${error}`);
@@ -1590,7 +1591,6 @@ async function fetchBreedImagesAndInfo(breedID) {
       },
     );
     const data = await response.json();
-    console.table(data);
     return data;
   } catch (error) {
     console.error(`Error: ${error}`);
@@ -1776,11 +1776,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_modules_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displaySearchIcon)();
 (0,_modules_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayLogo)();
 (0,_modules_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayFavicon)();
-(0,_modules_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayLoadingImage)();
 
-//! **`` npx webpack --watch FOOOOOOOL
-//todo **`` Add a loading screen
-//todo **`` Get rid of helper console messages
 //todo **`` Update README.md
 
 })();

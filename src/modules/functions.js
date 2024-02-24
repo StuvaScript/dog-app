@@ -12,7 +12,6 @@ async function searchForBreed(searchValue) {
       },
     );
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error(`Error: ${error}`);
@@ -29,7 +28,6 @@ async function fetchBreedImagesAndInfo(breedID) {
       },
     );
     const data = await response.json();
-    console.table(data);
     return data;
   } catch (error) {
     console.error(`Error: ${error}`);

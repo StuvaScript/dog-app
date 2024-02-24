@@ -9,6 +9,7 @@ export {
   displayFavicon,
   toggleBreedNotFoundMessage,
   displayLoadingImage,
+  removeLoadingScreen,
 };
 
 import searchIcon from '../images/search.png';
@@ -149,7 +150,6 @@ function displayInfo(returnedInfo) {
   singleBreedWrapper.append(imageWrapper);
 
   returnedInfo.forEach((item) => {
-    console.log(item.url);
     const infoImage = document.createElement('div');
     infoImage.classList.add('info-image');
     const img = document.createElement('img');
@@ -231,4 +231,9 @@ function displayLoadingImage() {
   div.append(img);
 
   document.querySelector('body').prepend(div);
+}
+
+//? **`` This removes the loading screen
+function removeLoadingScreen() {
+  document.querySelector('#loading-wrapper').remove();
 }

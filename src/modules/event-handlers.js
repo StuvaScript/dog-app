@@ -2,8 +2,10 @@ import {
   displayBackButton,
   displayBreeds,
   displayInfo,
+  displayLoadingImage,
   introPage,
   removeDogs,
+  removeLoadingScreen,
   toggleBreedNotFoundMessage,
 } from './dom-manipulation';
 import {
@@ -25,10 +27,10 @@ function searchBreedsLogic() {
       return;
     }
     removeDogs();
-    //* **`` Display loading screen here ``**
+    displayLoadingImage();
     const returnedBreeds = await searchForBreed(inputField.value);
     inputField.value = '';
-    //* **`` Remove loading screen here ``**
+    removeLoadingScreen();
     if (returnedBreeds.length === 0) {
       toggleBreedNotFoundMessage();
       introPage();
@@ -46,13 +48,11 @@ function searchBreedsLogic() {
 function navigateToBreedInfoPageLogic(newBreedArray) {
   [...document.querySelectorAll('.breed-wrapper')].forEach((breed) => {
     breed.addEventListener('click', async function (e) {
-      console.log(e);
-      console.log(this.attributes['data-breed-id'].value);
       const breedID = this.attributes['data-breed-id'].value;
       removeDogs();
-      //* **`` Display loading screen here ``**
+      displayLoadingImage();
       const returnedInfo = await fetchBreedImagesAndInfo(breedID);
-      //* **`` Remove loading screen here ``**
+      removeLoadingScreen();
       displayBackButton('breed-info');
       displayInfo(returnedInfo);
       clickBackButtonLogic(newBreedArray);
