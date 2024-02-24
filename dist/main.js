@@ -1777,8 +1777,6 @@ __webpack_require__.r(__webpack_exports__);
 (0,_modules_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayLogo)();
 (0,_modules_dom_manipulation__WEBPACK_IMPORTED_MODULE_0__.displayFavicon)();
 
-//todo **`` Update README.md
-
 })();
 
 /******/ })()
