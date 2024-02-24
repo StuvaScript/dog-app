@@ -20,15 +20,18 @@ Click the 'back button' on the screen to return to the previous page or click th
 
 To work with this code:
 
-1. Find the file called ".env_sample"
-2. Create a file called ".env" on the same file hierarchal level as ".env_sample"
-3. Copy the ".env_sample" file contents to ".env"
-4. In the ".env" file, replace the "API_KEY" value with your personal API key
-5. Type the console command `npm run start`. Run this command every time you modify this file. If it can't find Webpack:
-<ol type="a">
-    <li>Type `npx webpack --watch`. Answer "yes" to any questions that pop up. This will install Webpack.</li>
-    <li>When it's finished, type `npm run start` again.</li>
-    <li>Then type `npx webpack --watch` again.</li>
+<ol>
+    <li>Find the file called ".env_sample"</li>
+    <li>Create a file called ".env" on the same file hierarchal level as ".env_sample"</li>
+    <li>Copy the ".env_sample" file contents to ".env"</li>
+    <li>In the ".env" file, replace the "API_KEY" value with your personal API key</li>
+    <li>Type the console command `npm run start`. Run this command every time you modify this file. If it can't find Webpack:
+        <ol type="a">
+            <li>Type `npx webpack --watch`. Answer "yes" to any questions that pop up. This will install Webpack.</li>
+            <li>When it's finished, type `npm run start` again.</li>
+            <li>Then type `npx webpack --watch` again.</li>
+        </ol>
+    </li>
 </ol>
 
 ## Built With
