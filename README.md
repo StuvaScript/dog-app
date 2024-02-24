@@ -25,11 +25,12 @@ To work with this code:
     <li>Create a file called ".env" on the same file hierarchal level as ".env_sample"</li>
     <li>Copy the ".env_sample" file contents to ".env"</li>
     <li>In the ".env" file, replace the "API_KEY" value with your personal API key</li>
-    <li>Type the console command `npm run start`. Run this command every time you modify this file. If it can't find Webpack:
-        <ol type="a">
-            <li>Type `npx webpack --watch`. Answer "yes" to any questions that pop up. This will install Webpack.</li>
-            <li>When it's finished, type `npm run start` again.</li>
-            <li>Then type `npx webpack --watch` again.</li>
+    <li>Type the console command <code>npm run start</code>. Run this command every time you modify this file. 
+    <br>- If it can't find Webpack:
+        <ol style="list-style-type:lower-alpha">
+            <li>Type <code>npx webpack --watch</code>. Answer "yes" to any questions that pop up. This will install Webpack.</li>
+            <li>When it's finished, type <code>npm run start</code> again.</li>
+            <li>Then type <code>npx webpack --watch</code> again.</li>
         </ol>
     </li>
 </ol>
