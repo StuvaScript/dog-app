@@ -16,5 +16,3 @@ clickLogoLogic();
 displaySearchIcon();
 displayLogo();
 displayFavicon();
-
-//todo **`` Update README.md
