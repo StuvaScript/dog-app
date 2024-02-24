@@ -25,9 +25,11 @@ To work with this code:
 3. Copy the ".env_sample" file contents to ".env"
 4. In the ".env" file, replace the "API_KEY" value with your personal API key
 5. Type the console command `npm run start`. Run this command every time you modify this file. If it can't find Webpack:
-   a. Type `npx webpack --watch`. Answer "yes" to any questions that pop up. This will install Webpack.
-   b. When it's finished, type `npm run start` again.
-   c. Then type `npx webpack --watch` again.
+<ol type="a">
+    <li>Type `npx webpack --watch`. Answer "yes" to any questions that pop up. This will install Webpack.</li>
+    <li>When it's finished, type `npm run start` again.</li>
+    <li>Then type `npx webpack --watch` again.</li>
+</ol>
 
 ## Built With
 
